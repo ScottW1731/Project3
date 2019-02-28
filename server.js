@@ -36,5 +36,4 @@ app.listen(PORT, function () {
     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
     PORT,
     PORT
-  );
-});
+  )});
