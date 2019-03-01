@@ -2,6 +2,7 @@ import React from "react";
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
+import "./TaskPage.css"
 
 class Task extends React.Component {
     constructor(props) {
