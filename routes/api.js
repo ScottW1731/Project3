@@ -26,7 +26,7 @@ router.post("/new", function(req, res) {
                 message: "User creation failed!"
             });
         });
-})
+});
 
 router.post("/login", function(req, res) { //attempting to login
     var email = req.body.email;

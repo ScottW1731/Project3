@@ -4,17 +4,21 @@ import axios from 'axios';
 
 
 class Login extends Component {
+    gotoTask = () => {
+        this.props.history.push("/task");
+    };
+
     handleLogin = (e) => {
         e.preventDefault();
         axios //try hitting our login route
-            .post("/api/user/login", {
+            .post("/user/login", {
                 email: this.props.email,
                 password: this.props.password
             })
             .then((response) => {
                 console.log(response.data); //on success, set loginToken in localstorage and goto Dashboard
                 localStorage.setItem("loginToken", response.data.token)
-                this.props.gotoDash();
+                this.gotoTask();
             })
             .catch((error) => {
                 console.error(error); //failure...?

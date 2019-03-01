@@ -12,8 +12,8 @@ class Register extends Component {
             })
             .then((response) => {
                 console.log(response.data); //on success, set loginToken in localStorage and go to dashboard
-                localStorage.setItem("loginToken", response.data.token)
-                this.props.gotoDash()
+                localStorage.setItem("loginToken", response.data.token);
+                this.props.gotoTask()
             })
             .catch((error) => {
                 console.error(error); //failed for some reason...?
