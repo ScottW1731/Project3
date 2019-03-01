@@ -1,11 +1,18 @@
-const express = require("express");
 
+var isDev = process.env.NODE_ENV === "development";
+if (isDev) {
+  require('dotenv').config();
+};
+const express = require("express");
+const path = require('path');
+const db = require(path.join(__dirname + "/models"));
+
+const jwt = require('express-jwt');
 const mongoose = require("mongoose");
 const routes = require("./routes");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
-const jwt = require('express-jwt');
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,4 +43,5 @@ app.listen(PORT, function () {
     "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
     PORT,
     PORT
-  )});
+  )
+});
