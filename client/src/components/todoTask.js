@@ -1,3 +1,5 @@
+import React from 'react';
+
 class TodoTask extends React.Component {
     constructor(props) {
       super(props);
@@ -32,9 +34,7 @@ class TodoTask extends React.Component {
       const { id } = this.props;
       const { saveEditTask } = this.props;
   
-      if (!this.editInput.value) {
-        null;
-      } else {
+       if (this.editInput.value) {
         saveEditTask(this.editInput.value, id);
         this.setState({
           isEdit: false
@@ -86,3 +86,4 @@ class TodoTask extends React.Component {
     }
   }
   
+  export default TodoTask;
