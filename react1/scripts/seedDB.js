@@ -13,38 +13,38 @@ const studentSeed = [
     title : "student", 
     first : "Scott", 
     last : "Wagner", 
-    email : "example1@gmail.com", 
+    password : "example1@gmail.com", 
     date: new Date(Date.now())
   },
   {
     title : "student", 
     first : "Homer", 
     last : "Simpson", 
-    email : "example2@gmail.com"
+    password : "example2@gmail.com"
   },
   {
     title : "student", 
     first : "Bart", 
     last : "Simpson", 
-    email : "example3@gmail.com"
+    password : "example3@gmail.com"
   },
   {
     title : "student", 
     first : "Marge", 
     last : "Simpson", 
-    email : "example4@gmail.com"
+    password : "example4@gmail.com"
   },
   {
     title : "student", 
     first : "Lisa", 
     last : "Simpson", 
-    email : "example5@gmail.com"
+    password : "example5@gmail.com"
   },
   {
     title : "student", 
     first : "Maggie", 
     last : "Simpson", 
-    email : "example2@gmail.com", 
+    password : "example2@gmail.com", 
   }
 ];
 
