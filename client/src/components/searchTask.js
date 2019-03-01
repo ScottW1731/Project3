@@ -1,3 +1,5 @@
+import React from "react";
+
 class SearchTask extends React.Component {
     searchTask = () => {
       const searchValue = this.searchInput.value;
@@ -19,3 +21,5 @@ class SearchTask extends React.Component {
       );
     }
   }
+
+export default SearchTask;

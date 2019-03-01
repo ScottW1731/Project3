@@ -1,21 +1,15 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import TaskPage from "./pages/TaskPage";
-// import Detail from "./pages/Detail";
-// import NoMatch from "./pages/NoMatch";
-// import Nav from "./components/Nav";
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={TaskPage} />
-          <Route exact path="/task" component={TaskPage} />
-          {/* <Route exact path="/task/:id" component={Detail} />
-          <Route component={NoMatch} /> */}
-        </Switch>
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import Task from '../src/pages/TaskPage';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Task/>
+
       </div>
     </Router>
   );
