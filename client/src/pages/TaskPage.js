@@ -11,8 +11,8 @@ class Task extends React.Component {
         tasks: [
           {
             id: 1,
-            task: 'Meeting Today',
-            type: 'Business'
+            task: 'Math Homework',
+            type: 'School'
           },
           {
             id: 2,
@@ -20,8 +20,8 @@ class Task extends React.Component {
             type: 'Personal'
           }, {
             id: 3,
-            task: 'Learn React',
-            type: 'Personal'
+            task: 'Wash Dishes',
+            type: 'Chores'
           }
         ],
         searchTaskValue: '',
@@ -104,7 +104,8 @@ class Task extends React.Component {
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />
-              <BusinessTask tasks={tasks} />
+              <SchoolTask tasks={tasks} />
+              <ChoreTask tasks={tasks}/>
             </div>
             <div className="task-completion">
               <span>{percentage === 'NaN' ? 0 : percentage }% done</span>
@@ -138,7 +139,8 @@ class Task extends React.Component {
   );
   
   const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
-  const BusinessTask = ({ tasks }) => TypeCount(tasks, "Business");
+  const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
+  const ChoreTask = ({tasks}) => TypeCount(tasks, "Chore")
   
   const TodaysDate = ({ day, month, date, year }) => (
     <p>

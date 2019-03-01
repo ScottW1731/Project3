@@ -1,0 +1,357 @@
+
+$color-primary-0: #2198F3;  // Main Primary color */
+$color-primary-1: #77BEF5;
+$color-primary-2: #4BAAF4;
+$color-primary-3: #098BEF;
+$color-primary-4: #0367B4;
+
+$color-secondary-1-0: #FFC413;  // Main Secondary color (2) */
+$color-secondary-1-1: #FFDC72;
+$color-secondary-1-2: #FFD041;
+$color-secondary-1-3: #FFBF00;
+$color-secondary-1-4: #FFBF00;
+
+$color-secondary-2-0: #12F4B0;  // Main Secondary color (1) */
+$color-secondary-2-1: #6EF5CC;
+$color-secondary-2-2: #3FF5BE;
+$color-secondary-2-3: #00EFA7;
+$color-secondary-2-4: #00B780;
+
+$color-complement-0: #FF9A13; // Main Complement color */
+$color-complement-1: #FFC372;
+$color-complement-2: #FFAE41;
+$color-complement-3: #FF9200;
+$color-complement-4: #FF9200;
+
+
+
+.color-primary-0 { color: #2198F3 }	/* Main Primary color */
+.color-primary-1 { color: #77BEF5 }
+.color-primary-2 { color: #4BAAF4 }
+.color-primary-3 { color: #098BEF }
+.color-primary-4 { color: #0367B4 }
+
+.color-secon-1-0 { color: #12F4B0 }	/* Main Secondary color (1) */
+.color-secon-1-1 { color: #6EF5CC }
+.color-secon-1-2 { color: #3FF5BE }
+.color-secon-1-3 { color: #00EFA7 }
+.color-secon-1-4 { color: #00B780 }
+
+.color-secon-2-0 { color: #FFC413 }	/* Main Secondary color (2) */
+.color-secon-2-1 { color: #FFDC72 }
+.color-secon-2-2 { color: #FFD041 }
+.color-secon-2-3 { color: #FFBF00 }
+.color-secon-2-4 { color: #FFBF00 }
+
+.color-complem-0 { color: #FF9A13 }	/* Main Complement color */
+.color-complem-1 { color: #FFC372 }
+.color-complem-2 { color: #FFAE41 }
+.color-complem-3 { color: #FF9200 }
+.color-complem-4 { color: #FF9200 }
+
+
+
+$variations: (
+  light: (
+    function: lighten,
+    parameters: 15%
+  ),
+  dark: (
+    function: darken,
+    parameters: 10%
+  ),
+  fade: (
+    function: rgba,
+    parameters: 0.7
+  ),
+  gray: (
+    function: grayscale
+  ),
+  shade: (
+    function: mix,
+    parameters: white 80%
+  )
+);
+
+@function color-variation($color, $variation: false) {
+  // Correctly set $color variable:
+  @if map-has-key($colors, $color) {
+    // $color is in $colors, set variable = map-value
+    $color: map-get($colors, $color);
+  } @else {
+    @if type-of($color) != color {
+      // $color is not in $color and $color is not a color
+      @error "Invalid color name: `#{$color}`.";
+    }
+    // $color is a valid color - use it
+  }
+
+  @if $variation {
+    @if not map-has-key($variations, $variation) {
+      // variation is not in $variations
+      @error "Invalid $variation: `#{$variation}`.";
+    } @else {
+      // make it easier to deal with nested map
+      $this-variation: map-get($variations, $variation);
+      // $args = $function, $color
+      $args: join(map-get($this-variation, function), $color);
+      @if map-get($this-variation, parameters) {
+        // $args = $function, $colors, $parameters
+        $args: join($args, map-get($this-variation, parameters));
+      }
+      //@return $args;
+      @return call($args...);
+    }
+  }
+  // no $variation, just return $color
+  @return $color;
+}
+
+// Alias function to make typing easier:
+@function cv($color, $variation: false) {
+  @return color-variation($color, $variation);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  text-align: center;
+  // background: linear-gradient(
+  //     to bottom,
+  //     rgba(0, 0, 0, 0.7),
+  //     rgba(255, 255, 255, 0.2)
+  //   ),
+  //   linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.2)),
+  background:  url("https://images.pexels.com/photos/951236/pexels-photo-951236.jpeg?cs=srgb&dl=achievement-arts-and-crafts-business-951236.jpg&fm=jpg")
+      no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  font-family: helvetica;
+  background-position-y: 10%;
+  position: relative;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.welcome p {
+  font-size: 2rem;
+  font-family: "PT Sans", Helvetica, Sans;
+}
+
+.social {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+.social li {
+  display: inline-block;
+}
+
+.social li a {
+  color: #fff;
+  font-size: 2rem;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+section {
+  margin: 0;
+  width: 100%;
+}
+
+.row {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.project-title a {
+  color: #1c1c1c;
+  text-decoration: none;
+}
+
+.project-title-1 a:hover {
+  color: $color-secondary-1-0;
+}
+
+.project-title-2 a:hover {
+  color: $color-secondary-2-0;
+}
+
+.project-title-3 a:hover {
+  color: $color-complement-0;
+}
+
+.project-title-4 a:hover {
+  color: $color-primary-1;
+}
+
+.project-title-5 a:hover {
+  color: $color-secondary-1-1;
+}
+
+.project-1-menu-current {
+  color: $color-secondary-1-0 !important;
+}
+
+.project-2-menu-current {
+  color: $color-secondary-2-0 !important;
+}
+
+.project-3-menu-current {
+  color: $color-complement-0 !important;
+}
+
+.project-4-menu-current {
+  color: $color-primary-1 !important;
+}
+
+.project-5-menu-current {
+  color: $color-secondary-1-1 !important;
+}
+
+.page-title {
+  background: inherit;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-title h1 {
+  font-size: 6rem;
+  color: white;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 2rem;
+  text-shadow: 0 0px 0 black;
+}
+
+.project-title {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.project-title h2 {
+  font-size: 3rem;
+  text-align: left;
+  font-weight: 400;
+  margin: 0;
+}
+
+.project-title a {
+  color: white;
+}
+
+.mask {
+  display: none;
+  width: 100%;
+  margin-left: auto;
+  padding-left: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.project-summary {
+  display: inline-block;
+  margin-top: -1rem;
+  text-align: left;
+  margin-left: auto;
+  width: 60%;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.project-summary p {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin-top: 0;
+}
+
+.project-summary h6 {
+  margin-top: -0.5rem;
+  margin-bottom: 0;
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.project-divider {
+  width: 40%;
+  height: 0.1rem;
+  /* background: #F7B733; */
+  /* background: rgba(255,255,255,.5); */
+  clear: both;
+  display: block;
+  margin-top: -0.5rem;
+  margin-left: -4rem;
+  margin-bottom: 2rem;
+}
+
+.project-divider-1 {
+  background: $color-secondary-1-0 !important;
+}
+
+.project-divider-2 {
+  background: $color-secondary-2-0 !important;
+}
+
+.project-divider-3 {
+  background: $color-complement-0 !important;
+}
+
+.project-divider-4 {
+  background: $color-primary-1 !important;
+}
+
+.project-divider-5 {
+  background: $color-secondary-1-1 !important;
+}
+
+.main-colors-light-1l2 {
+  color: #dbeefd;
+}
+
+.main-colors-light-2l2 {
+  color: #fff6da;
+}
+
+.main-colors-light-3l2 {
+  color: #d0fdef;
+}
+
+.main-colors-light-4l2 {
+  color: #ffefda;
+}
+
+.main-colors-light-1l1 {
+  color: #abd7fa;
+}
+
+.main-colors-light-2l1 {
+  color: #ffe9a7;
+}
+
+.main-colors-light-3l1 {
+  color: #a0fadf;
+}
+
+.main-colors-light-4l1 {
+  color: #ffd9a7;
+}
