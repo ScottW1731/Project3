@@ -1,8 +1,11 @@
 import React from "react";
+import axios from 'axios';
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
 import "./TaskPage.css"
+
+import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
 class Task extends React.Component {
     constructor(props) {
@@ -55,24 +58,88 @@ class Task extends React.Component {
       tasks.map(todo => {
         if(todo.id === id) {
           todo.task = task
+
         }
-      })
-      this.setState({tasks})
+      ],
+      searchTaskValue: '',
+      completedTask: []
     }
-    
-    searchTask = (taskName) => {
-      this.setState({searchTaskValue: taskName})
+  }
+
+  handleLogout = (e) => {
+    //removes token from localStorage, effectively logging user out, then redirects back go login page
+    e.preventDefault();
+    localStorage.removeItem("loginToken");
+    this.props.history.push("/admin");
+  }
+
+  componentDidMount() {
+    const token = localStorage.getItem("loginToken"); //retrieve token from localStorage
+    if (!token) { //if token doesnt exist, redirect back to home
+      this.props.history.push("/admin");
+    } else { //otherwise try and hit user validation route
+      axios
+        .get(
+          "/api/validateuser",
+          {
+            headers: {
+              "Authorization": "Bearer " + token
+            }
+          })
+        .then((response) => {
+          console.log(response.data); //on success, do nothing
+        })
+        .catch((error) => {
+          console.error(error); //otherwise redirect back to home page.
+          this.props.history.push("/admin");
+        })
     }
-  
-    completeTask = (id) => {
-      const {completedTask, tasks} = this.state
-      const completed = tasks.filter(task => task.id === id)
-      
-      completedTask.push(...completed)
-      this.setState({
-        completedTask
-      })
-    }
+  }
+
+  deleteTask = (id) => {
+    const { tasks, completedTask } = this.state;
+    const filterTasks = tasks.filter(task => task.id !== id)
+    const clearCompleted = completedTask.length > 0 && completedTask.filter(task => task.id !== id)
+
+    this.setState({
+      tasks: filterTasks,
+      completedTask: clearCompleted
+    })
+  }
+
+  addTask = (task, id, type) => {
+    const { tasks } = this.state
+
+    tasks.unshift({ task, id, type })
+
+    this.setState({
+      tasks: tasks
+    })
+  }
+
+  saveEditTask = (task, id) => {
+    const { tasks } = this.state
+    tasks.map(todo => { // error: expected to return a value in arrow function???
+      if (todo.id === id) {
+        todo.task = task
+      }
+    })
+    this.setState({ tasks })
+  }
+
+  searchTask = (taskName) => {
+    this.setState({ searchTaskValue: taskName })
+  }
+
+  completeTask = (id) => {
+    const { completedTask, tasks } = this.state
+    const completed = tasks.filter(task => task.id === id)
+
+    completedTask.push(...completed)
+    this.setState({
+      completedTask
+    })
+  }
     
     render() {
       const {tasks, searchTaskValue, completedTask} = this.state
@@ -97,8 +164,9 @@ class Task extends React.Component {
                          todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
       return (
         <div id="app">
-  
+          <Nav/>
           <header>
+
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
             </div>
@@ -117,20 +185,20 @@ class Task extends React.Component {
           <ul>
             {
               searchFilter.map(todo => 
+
               <TodoTask key={todo.id}
                 {...todo}
                 deleteTask={this.deleteTask}
                 saveEditTask={this.saveEditTask}
                 completeTask={this.completeTask}
-                />)
-            }
-          </ul>
-          
-          <AddTaskForm addTask={this.addTask}/>
-          
-        </div>
-      )
-    }
+              />)
+          }
+        </ul>
+
+        <AddTaskForm addTask={this.addTask} />
+
+      </div>
+    )
   }
   const TypeCount = (list, type) => (
     <p>
@@ -152,3 +220,4 @@ class Task extends React.Component {
   );
 
 export default Task;
+
