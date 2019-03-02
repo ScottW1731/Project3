@@ -32,40 +32,7 @@ class Task extends React.Component {
       }
     }
     
-    deleteTask = (id) => {
-      const {tasks, completedTask} = this.state;
-      const filterTasks = tasks.filter(task => task.id !== id)
-      const clearCompleted = completedTask.length > 0 && completedTask.filter(task => task.id !== id)
-      
-      this.setState({
-        tasks: filterTasks,
-        completedTask: clearCompleted
-      })
-    }
     
-    addTask = (task, id, type) => {
-      const {tasks} = this.state
-      
-      tasks.unshift({task, id, type})
-      
-      this.setState({
-        tasks: tasks
-      })
-    }
-    
-    saveEditTask = (task, id) => {
-      const { tasks } = this.state
-      tasks.map(todo => {
-        if(todo.id === id) {
-          todo.task = task
-
-        }
-      ],
-      searchTaskValue: '',
-      completedTask: []
-    }
-  }
-
   handleLogout = (e) => {
     //removes token from localStorage, effectively logging user out, then redirects back go login page
     e.preventDefault();
@@ -200,6 +167,8 @@ class Task extends React.Component {
       </div>
     )
   }
+}
+
   const TypeCount = (list, type) => (
     <p>
       {list.filter(l => l.type === type).length} <span>{type}</span>
@@ -218,6 +187,7 @@ class Task extends React.Component {
       </span>
     </p>
   );
+
 
 export default Task;
 
