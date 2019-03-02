@@ -8,6 +8,10 @@ class Register extends Component {
         axios //trying to create a new user
             .post("/api/user/new", {
                 email: this.props.email,
+                // firstName: this.props.firstName,
+                // lastNamae: this.props.lastNamae,
+                // mentorMentee: this.props.mentorMentee,
+                // userName: this.props.userName,
                 password: this.props.password
             })
             .then((response) => {
@@ -35,7 +39,7 @@ class Register extends Component {
                     <Form email={this.props.email} password={this.props.password} handleInputChange={this.props.handleInputChange}/>
 
                     <button type="submit" onClick={this.handleRegister} className="btn btn-primary">Submit</button>
-                    <button onClick={this.props.handleSwitch} className="btn btn-default">Login!</button> {/*toggle back to login menu*/}
+                    <button onClick={this.props.handleSwitch} className="btn btn-info">Login!</button> {/*toggle back to login menu*/}
                 </form>
                 </div>
             </div>

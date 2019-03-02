@@ -1,3 +1,6 @@
+import React from 'react';
+// import Date from "../pages/TaskPage";
+
 class AddTaskForm extends React.Component {
     constructor(props) {
       super(props);
@@ -15,9 +18,7 @@ class AddTaskForm extends React.Component {
   
       e.preventDefault();
   
-      if (!this.taskInput.value || !this.state.selected) {
-        null;
-      } else {
+       if(this.taskInput.value || this.state.selected) {
         const date = new Date();
         const id = date.getTime();
         const type = this.state.selected;
@@ -52,7 +53,5 @@ class AddTaskForm extends React.Component {
       );
     }
   }
-  
-  const root = document.getElementById("root");
-  ReactDOM.render(<App />, root);
-  
+
+export default AddTaskForm;

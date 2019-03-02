@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*,*:before,*:after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+body, input, button {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  height: 100vh;
+}
+
+primary: #53a7ee;
+secondary: #9e9e9e;
+
+input, select {
+  color: gray;
+  margin: 0 5px;
+  border: none;
+  padding: 5px;
+  outline: none;
+  background: none;
+  border-bottom: solid 2px lightgray;
+  &:focus {
+    color: $primary;
+    border-bottom-color: $primary;
+  }
+}
+select {
+  color: $primary;
+}
+
+button {
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  background: $primary;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  margin: auto;
+  max-width: auto;
+  background:linear-gradient(0deg, rgb(135, 221, 202),rgb(195, 231, 223),white 75%);
+  box-shadow: 0 0 20px 1px $secondary;
+  flex-direction: column;
+}
+
+header {
+  height: 200px;
+  display: flex;
+  position: relative;
+  background: url('https://images.pexels.com/photos/159731/pencil-education-pencil-sharpener-art-159731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')no-repeat center center;
+  background-size: cover;
+  > * {
+    flex: 1;
+  }
+}
+
+.task-completion {
+  color: lighten($secondary, 20%);
+  right: 20px;
+  bottom: 12px;
+  position: absolute;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+
+.date {
+  padding: 0 0 10px 10px;
+  border-bottom: solid 4px $primary;
+  p {
+    color: white;
+    height: 100%;
+    display: flex;
+    font-size: 40px;
+    margin-top: 0;
+    flex-direction: column;
+    justify-content: flex-end;
+    span {
+      color: lighten($secondary, 20%);
+      font-size: 13px;
+      font-weight: initial;
+    }
+  }
+}
+
+.type-of-tasks {
+  display: flex;
+  /* background: linear-gradient(0deg, rgba(0, 0, 60, .6), rgba(0,0,0,.3)); */
+  padding-right: 10px;
+  justify-content: flex-end;
+  p {
+    color: white;
+    display: flex;
+    font-size: 40px;
+    align-self: center;
+    align-items: flex-end;
+    margin-left: 10px;
+    margin-right: 10px;
+    flex-direction: column;
+    span {
+      color: lighten($secondary, 20%);
+      font-size: 13px;
+
+    }
+  }
+}
+
+/*
+SEARCH FIELD
+*/
+#search-field {
+  padding: 10px 10px;
+  /* border: solid 1px red; */
+  display: inline-block;
+  margin-right: auto;
+  position: relative;
+  .fa-search {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translate(0,-50%) rotate(90deg);
+    color: lighten($secondary, 10%);
+  }
+  input {
+    color: $primary;
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: lightgray;
+  font-style: italic
+}
+
+/*
+TASKS
+*/
+ul {
+  padding: 0 10px;
+  list-style: none;
+  overflow-y: scroll;
+  li {
+    padding: 10px 0 10px 15px;
+    border-bottom: solid 1px lightgray;
+    &:last-child {
+      border-bottom: none;
+    }
+    div {
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0 auto 0 0;
+        display: flex;
+        font-size: 19px;
+        flex-direction: column;
+        span {
+          color: $secondary;
+          font-size: 13px;
+          margin-top: 2px;
+        }
+      }
+      button {
+        color: $primary;
+        margin: 0 10px;
+        background: none;
+      }
+    }
+  }
+}
+
+
+/*
+ADD TASK FORM
+*/
+#add-task-form {
+  height: 55px;
+  padding: 10px;
+  display: flex;
+  margin-top: auto;
+  > * {
+    flex: 1;
+  }
+  button {
+    color: white;
+    padding: 5px;
+    &:hover {
+      background: darken($primary, 10%);
+    }
+  }
+}
+
+#edit-task-form {
+  padding: 0 8px 0 0;
+  display: flex;
+  input {
+    flex: 1;
+  }
+  button {
+    color: white;
+  }
+}
+
+
+ul li button:hover:not(.delete-btn) {
+  color: darken($primary, 18%);
+}
+
+/*
+CLASSES
+*/
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.delete-btn:hover {
+  color: red;
+}
+
+.disable-btn {
+  color: gray;
+  cursor: not-allowed;
+  opacity: .2;
+}

@@ -37,6 +37,10 @@ app.get("/api/validateuser", function (req, res) {
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/accountabilityApp";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 // Start the API server
 app.listen(PORT, function () {
   console.log(

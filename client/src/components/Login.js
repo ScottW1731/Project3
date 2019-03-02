@@ -4,21 +4,19 @@ import axios from 'axios';
 
 
 class Login extends Component {
-    gotoTask = () => {
-        this.props.history.push("/task");
-    };
-
+ 
     handleLogin = (e) => {
         e.preventDefault();
+        console.log(this.props.email, this.props.password)
         axios //try hitting our login route
-            .post("/user/login", {
+            .post("api/user/login", {
                 email: this.props.email,
                 password: this.props.password
             })
             .then((response) => {
-                console.log(response.data); //on success, set loginToken in localstorage and goto Dashboard
+                console.log(response); //on success, set loginToken in localstorage and goto Dashboard
                 localStorage.setItem("loginToken", response.data.token)
-                this.gotoTask();
+                this.props.gotoTask();
             })
             .catch((error) => {
                 console.error(error); //failure...?
@@ -38,7 +36,7 @@ class Login extends Component {
                         <form> {/*we are passing on email, password, and handleInputChange on down the line*/}
                             <Form email={this.props.email} password={this.props.password} handleInputChange={this.props.handleInputChange} />
                             <button type="submit" onClick={this.handleLogin} className="btn btn-primary">Submit</button>
-                            <button onClick={this.props.handleSwitch} className="btn btn-default">Register!</button> {/*toggle back to login menu*/}
+                            <button onClick={this.props.handleSwitch} className="btn btn-success">Register!</button> {/*toggle back to login menu*/}
                         </form>
                     </div>
                 </div>
