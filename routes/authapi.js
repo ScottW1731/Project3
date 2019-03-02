@@ -6,11 +6,11 @@ var userAuthHelper = require('../helpers/helpers.js');
 router.post("/new", function (req, res) {
     var salt = userAuthHelper.getSalt(); //generate new salt
     var newUser = { //setup user object
-        // firstName: req.body.firstName.trim().toLowerCase(),
-        // lastName: req.body.lastName.trim().toLowerCase(),
-        // mentorMentee: req.body.mentorMentee,
-        email: req.body.email.trim().toLowerCase(),
-        // userName: req.body.userName.trim().toLowerCase(),
+        firstName: req.body.firstName.trim().toLowerCase(),
+        lastName: req.body.lastName.trim().toLowerCase(),
+        mentorMentee: req.body.mentorMentee,
+        // email: req.body.email.trim().toLowerCase(),
+        userName: req.body.userName.trim().toLowerCase(),
         hash: userAuthHelper.getHash(req.body.password, salt),
         salt: salt
     }
@@ -33,8 +33,8 @@ router.post("/new", function (req, res) {
 });
 
 router.post("/login", function (req, res) { //attempting to login
-    const email = req.body.email;
-    // const userName = req.body.userName;
+    // const email = req.body.email;
+    const userName = req.body.userName;
     const pass = req.body.password;
     db.User
         .findOne({

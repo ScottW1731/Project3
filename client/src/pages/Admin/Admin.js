@@ -8,8 +8,11 @@ import "./Admin.css";
 class Admin extends Component {
     state = {
         form: "register",
-        email: "",
-        // userName: "",
+        // email: "",
+        firstName: "",
+        lastName: "",
+        mentorMentee: "",
+        userName: "",
         password: ""
     }
 
@@ -58,14 +61,19 @@ class Admin extends Component {
                 {
                     (this.state.form === "login") ?
                         <Login
-                            email={this.state.email}
+                            // email={this.state.email}
+                            userName={this.state.userName}
                             password={this.state.password}
                             handleInputChange={this.handleInputChange}
                             handleSwitch={this.handleSwitch}
                             gotoTask={this.gotoTask}
                         /> :
                         <Register
-                            email={this.state.email}
+                            // email={this.state.email}
+                            firstName={this.state.firstName}
+                            lastName={this.state.lastName}
+                            mentorMentee={this.state.mentorMentee}
+                            userName={this.state.userName}
                             password={this.state.password}
                             handleInputChange={this.handleInputChange}
                             handleSwitch={this.handleSwitch}

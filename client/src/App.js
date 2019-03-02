@@ -1,10 +1,10 @@
+
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TaskPage from "./pages/TaskPage";
 import Admin from "./pages/Admin/Admin";
 // import Detail from "./pages/Detail";
 // import NoMatch from "./pages/NoMatch";
-
 
 function App() {
   return (
