@@ -8,23 +8,57 @@ import "./TaskPage.css"
 import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
 class Task extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      tasks: [
-        {
-          id: 1,
-          task: 'Meeting Today',
-          type: 'Business'
-        },
-        {
-          id: 2,
-          task: 'Work Out',
-          type: 'Personal'
-        }, {
-          id: 3,
-          task: 'Learn React',
-          type: 'Personal'
+    constructor(props) {
+      super(props)
+      this.state = {
+        tasks: [
+          {
+            id: 1,
+            task: 'Math Homework',
+            type: 'School'
+          },
+          {
+            id: 2,
+            task: 'Work Out',
+            type: 'Personal'
+          }, {
+            id: 3,
+            task: 'Wash Dishes',
+            type: 'Chores'
+          }
+        ],
+        searchTaskValue: '',
+        completedTask: []
+      }
+    }
+    
+    deleteTask = (id) => {
+      const {tasks, completedTask} = this.state;
+      const filterTasks = tasks.filter(task => task.id !== id)
+      const clearCompleted = completedTask.length > 0 && completedTask.filter(task => task.id !== id)
+      
+      this.setState({
+        tasks: filterTasks,
+        completedTask: clearCompleted
+      })
+    }
+    
+    addTask = (task, id, type) => {
+      const {tasks} = this.state
+      
+      tasks.unshift({task, id, type})
+      
+      this.setState({
+        tasks: tasks
+      })
+    }
+    
+    saveEditTask = (task, id) => {
+      const { tasks } = this.state
+      tasks.map(todo => {
+        if(todo.id === id) {
+          todo.task = task
+
         }
       ],
       searchTaskValue: '',
@@ -106,51 +140,6 @@ class Task extends React.Component {
       completedTask
     })
   }
-
-  render() {
-    const { tasks, searchTaskValue, completedTask } = this.state
-
-    const calculateCompletedTask = (completedTask.length / tasks.length) * 100;
-    const percentage = calculateCompletedTask.toFixed(0)
-    // console.log(`${percentage}%`)
-
-    // get todays date
-    const d = new Date()
-    const weekDay = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-    const day = weekDay[d.getDay()]
-    const month = months[d.getMonth()]
-    const date = d.getDate()
-    const year = d.getFullYear()
-
-    const searchFilter = tasks
-      .filter(todo =>
-        todo.task.toLowerCase().includes(searchTaskValue.toLowerCase())
-        ||
-        todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
-    return (
-      <div id="app">
-
-        <header>
-          <div className="date">
-            <TodaysDate day={day} month={month} date={date} year={year} />
-            <button className="btn-lg btn-danger" onClick={this.handleLogout}>Log Out!</button>
-          </div>
-          <div className="type-of-tasks">
-            <PersonalTask tasks={tasks} />
-            <BusinessTask tasks={tasks} />
-          </div>
-          <div className="task-completion">
-            <span>{percentage === 'NaN' ? 0 : percentage}% done</span>
-          </div>
-        </header>
-
-        {tasks.length > 1 && <SearchTask searchTask={this.searchTask} />}
-
-        <ul>
-          {
-            searchFilter.map(todo =>
-=======
     
     render() {
       const {tasks, searchTaskValue, completedTask} = this.state
@@ -183,7 +172,8 @@ class Task extends React.Component {
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />
-              <BusinessTask tasks={tasks} />
+              <SchoolTask tasks={tasks} />
+              <ChoreTask tasks={tasks}/>
             </div>
             <div className="task-completion">
               <span>{percentage === 'NaN' ? 0 : percentage }% done</span>
@@ -210,23 +200,24 @@ class Task extends React.Component {
       </div>
     )
   }
-}
-const TypeCount = (list, type) => (
-  <p>
-    {list.filter(l => l.type === type).length} <span>{type}</span>
-  </p>
-);
-
-const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
-const BusinessTask = ({ tasks }) => TypeCount(tasks, "Business");
-
-const TodaysDate = ({ day, month, date, year }) => (
-  <p>
-    {day}{" "}
-    <span>
-      {month} {date}, {year}
-    </span>
-  </p>
-);
+  const TypeCount = (list, type) => (
+    <p>
+      {list.filter(l => l.type === type).length} <span>{type}</span>
+    </p>
+  );
+  
+  const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
+  const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
+  const ChoreTask = ({tasks}) => TypeCount(tasks, "Chore")
+  
+  const TodaysDate = ({ day, month, date, year }) => (
+    <p>
+      {day}{" "}
+      <span>
+        {month} {date}, {year}
+      </span>
+    </p>
+  );
 
 export default Task;
+

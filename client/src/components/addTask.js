@@ -46,7 +46,8 @@ class AddTaskForm extends React.Component {
           >
             <option value="">Type</option>
             <option value="Personal">Personal</option>
-            <option value="Business">Business</option>
+            <option value="School">School</option>
+            <option value="Chore">Chore</option>
           </select>
           <button>Add</button>
         </form>
