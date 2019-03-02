@@ -4,13 +4,12 @@ import TaskPage from "./pages/TaskPage";
 import Admin from "./pages/Admin/Admin";
 // import Detail from "./pages/Detail";
 // import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav"; // error: module not found: Can't resolve './components/Nav'???
+
 
 function App() {
   return (
     <Router>
       <div>
-        {/* <Nav /> */}
         <Switch>
           <Route exact path="/" component={TaskPage} />
           <Route exact path="/task" component={TaskPage} />
