@@ -9,7 +9,7 @@ class Register extends Component {
             .post("/api/user/new", {
                 // email: this.props.email,
                 firstName: this.props.firstName,
-                lastNamae: this.props.lastNamae,
+                lastName: this.props.lastName,
                 mentorMentee: this.props.mentorMentee,
                 userName: this.props.userName,
                 password: this.props.password

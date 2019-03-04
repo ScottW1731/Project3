@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import Form from './Form';
 import axios from 'axios';
+// import Form from './Form';
 
 
 class Login extends Component {
- 
+
     handleLogin = (e) => {
         e.preventDefault();
-        console.log(this.props.email, this.props.password)
+        console.log(this.props.userName, this.props.password)
         axios //try hitting our login route
             .post("api/user/login", {
-                email: this.props.email,
+                // email: this.props.email,
+                userName: this.props.userName,
                 password: this.props.password
             })
             .then((response) => {
-                console.log(response); //on success, set loginToken in localstorage and goto Dashboard
+                console.log(response);
                 localStorage.setItem("loginToken", response.data.token)
                 this.props.gotoTask();
             })
@@ -34,9 +35,22 @@ class Login extends Component {
                 <div className="row">
                     <div className="col-sm-4 offset-sm-4">
                         <form> {/*we are passing on email, password, and handleInputChange on down the line*/}
-                            <Form email={this.props.email} password={this.props.password} handleInputChange={this.props.handleInputChange} />
+                            <div className="form-group">
+                                {/* username */}
+                                <label className="labels" htmlFor="exampleInputUserName">Username</label>
+                                <input onChange={this.props.handleInputChange} name="userName" value={this.props.userName} type="userName" className="form-control" id="exampleInputUserName1" aria-describedby="userNameHelp" placeholder="Enter Username" />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input onChange={this.props.handleInputChange} name="password" value={this.props.password} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                            </div>
                             <button type="submit" onClick={this.handleLogin} className="btn btn-primary">Submit</button>
-                            <button onClick={this.props.handleSwitch} className="btn btn-success">Register!</button> {/*toggle back to login menu*/}
+                            <button onClick={this.props.handleSwitch} className="btn btn-success">Register!</button>
+                            {/* <Form
+                                email={this.props.email}
+                                userName={this.props.userName}
+                                password={this.props.password} handleInputChange={this.props.handleInputChange} /> */}
+                            {/*toggle back to login menu*/}
                         </form>
                     </div>
                 </div>

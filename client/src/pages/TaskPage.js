@@ -5,75 +5,43 @@ import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
 import "./TaskPage.css"
 class Task extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      tasks: [
-        {
-          id: 1,
-          task: 'Math Homework',
-          type: 'School'
-        },
-        {
-          id: 2,
-          task: 'Work Out',
-          type: 'Personal'
-        }, {
-          id: 3,
-          task: 'Wash Dishes',
-          type: 'Chores'
-        }
-      ],
-      searchTaskValue: '',
-      completedTask: []
-    }
-  }
-
-  deleteTask = (id) => {
-    const { tasks, completedTask } = this.state;
-    const filterTasks = tasks.filter(task => task.id !== id)
-    const clearCompleted = completedTask.length > 0 && completedTask.filter(task => task.id !== id)
-
-    this.setState({
-      tasks: filterTasks,
-      completedTask: clearCompleted
-    })
-  }
-
-  addTask = (task, id, type) => {
-    const { tasks } = this.state
-
-    tasks.unshift({ task, id, type })
-
-    this.setState({
-      tasks: tasks
-    })
-  }
-
-  saveEditTask = (task, id) => {
-    const { tasks } = this.state
-    tasks.map(todo => {
-      if (todo.id === id) {
-        todo.task = task
-
-      }
-      ],
-      searchTaskValue: '',
+    constructor(props) {
+      super(props)
+      this.state = {
+        tasks: [
+          {
+            id: 1,
+            task: 'Math Homework',
+            type: 'School'
+          },
+          {
+            id: 2,
+            task: 'Work Out',
+            type: 'Personal'
+          }, {
+            id: 3,
+            task: 'Wash Dishes',
+            type: 'Chores'
+          }
+        ],
+        searchTaskValue: '',
         completedTask: []
+      }
     }
-  }
-
+    
+    
   handleLogout = (e) => {
     //removes token from localStorage, effectively logging user out, then redirects back go login page
     e.preventDefault();
     localStorage.removeItem("loginToken");
-    this.props.history.push("/admin");
+    // this.props.history.push("/admin");
+    this.props.history.push("/");
   }
 
   componentDidMount() {
     const token = localStorage.getItem("loginToken"); //retrieve token from localStorage
     if (!token) { //if token doesnt exist, redirect back to home
-      this.props.history.push("/admin");
+      this.props.history.push("/");
     } else { //otherwise try and hit user validation route
       axios
         .get(
@@ -88,7 +56,8 @@ class Task extends React.Component {
         })
         .catch((error) => {
           console.error(error); //otherwise redirect back to home page.
-          this.props.history.push("/admin");
+          // this.props.history.push("/admin");
+          this.props.history.push("/");
         })
     }
   }
@@ -161,11 +130,13 @@ class Task extends React.Component {
         todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
     return (
       <div id="app">
-        <Nav />
+        {/* <Nav /> */}
         <header>
 
           <div className="date">
             <TodaysDate day={day} month={month} date={date} year={year} />
+            {/* logout button -- move if needed */}
+            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
           </div>
           <div className="type-of-tasks">
             <PersonalTask tasks={tasks} />
@@ -197,6 +168,8 @@ class Task extends React.Component {
       </div>
     )
   }
+}
+
   const TypeCount = (list, type) => (
     <p>
       {list.filter(l => l.type === type).length} <span>{type}</span>
@@ -216,5 +189,6 @@ class Task extends React.Component {
     </p>
   );
 
-  export default Task;
+
+export default Task;
 

@@ -38,7 +38,7 @@ router.post("/login", function (req, res) { //attempting to login
     const pass = req.body.password;
     db.User
         .findOne({
-            email
+            userName
         },
             function (error, response) {
                 if (error) {
