@@ -7,17 +7,22 @@ class Login extends Component {
 
     handleLogin = (e) => {
         e.preventDefault();
-        console.log(this.props.userName, this.props.password)
+
         axios //try hitting our login route
             .post("api/user/login", {
                 // email: this.props.email,
                 userName: this.props.userName,
-                password: this.props.password
+                password: this.props.password,
+                mentorMentee: this.props.mentorMentee
             })
             .then((response) => {
-                console.log(response);
+                // console.log(response.data.mentorMentee);
                 localStorage.setItem("loginToken", response.data.token)
-                this.props.gotoTask();
+                if (response.data.mentorMentee === "student") {
+                    this.props.gotoTask()
+                } else {
+                    this.props.gotoMentor();
+                }
             })
             .catch((error) => {
                 console.error(error); //failure...?

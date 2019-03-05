@@ -50,12 +50,14 @@ router.post("/login", function (req, res) { //attempting to login
                 }
 
                 if (response) {
+                    // console.log(response)
                     var inputHash = userAuthHelper.getHash(pass, response.salt) //hash the password attempt with found salt
                     if (inputHash === response.hash) { //if hashed input is equal to hash in db, login successful
                         res.json({
                             success: true,
                             message: "Login authorized!",
-                            token: userAuthHelper.generateJWT(response)
+                            token: userAuthHelper.generateJWT(response),
+                            mentorMentee: response.mentorMentee
                         });
                     } else { //otherwise a failure
                         return res.status(400).json({

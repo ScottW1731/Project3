@@ -30,8 +30,13 @@ class Admin extends Component {
         })
     }
 
-    gotoTask = () => {
+    gotoTask = (res) => {
+        console.log(this);
         this.props.history.push("/task");
+    }
+
+    gotoMentor = () => {
+        this.props.history.push("/mentor");
     }
 
     componentDidMount() {
@@ -67,6 +72,7 @@ class Admin extends Component {
                             handleInputChange={this.handleInputChange}
                             handleSwitch={this.handleSwitch}
                             gotoTask={this.gotoTask}
+                            gotoMentor={this.gotoMentor}
                         /> :
                         <Register
                             // email={this.state.email}
@@ -78,6 +84,7 @@ class Admin extends Component {
                             handleInputChange={this.handleInputChange}
                             handleSwitch={this.handleSwitch}
                             gotoTask={this.gotoTask}
+                            gotoMentor={this.gotoMentor}
                         />
                 }
             </>
