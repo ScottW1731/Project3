@@ -1,13 +1,14 @@
-// const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-// const studentSchema = new Schema({
-//   title: { type: String, required: true },
-//   author: { type: String, required: true },
-//   synopsis: String,
-//   date: { type: Date, default: Date.now }
-// });
+const mentorSchema = new Schema({
+  mentorname: { type: String, required: true },
+  password: { type: String, required: true },
 
-// const student = mongoose.model("student", studentSchema);
+  date: { type: Date, default: Date.now }
+});
 
-// module.exports = student;
+//   mentorname: String,
+const mentor = mongoose.model("mentor", mentorSchema);
+
+module.exports = mentor;
