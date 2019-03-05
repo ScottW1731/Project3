@@ -1,6 +1,6 @@
 
-
-// module.exports = {
-//     user: require("./model")
-//   };
+module.exports = {
+    student: require("./student"),
+    User: require("./User")
+  };
   
