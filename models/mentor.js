@@ -1,13 +1,13 @@
 // const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;
 
-// const bookSchema = new Schema({
+// const studentSchema = new Schema({
 //   title: { type: String, required: true },
 //   author: { type: String, required: true },
 //   synopsis: String,
 //   date: { type: Date, default: Date.now }
 // });
 
-// const Book = mongoose.model("Book", bookSchema);
+// const student = mongoose.model("student", studentSchema);
 
-// module.exports = Book;
+// module.exports = student;
