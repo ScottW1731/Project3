@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // API routes
-app.use("/api/user", require("./routes/api"));
+app.use("/api/user", require("./routes/authapi"));
 app.use("api/validateuser", jwt({
   secret: process.env.JWT_SECRET,
   userProperty: 'payload'

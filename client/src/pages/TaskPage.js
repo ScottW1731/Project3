@@ -135,6 +135,8 @@ class Task extends React.Component {
           <header>
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
+              {/* logout button -- move if needed */}
+            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />
