@@ -106,51 +106,6 @@ class Task extends React.Component {
       completedTask
     })
   }
-
-  render() {
-    const { tasks, searchTaskValue, completedTask } = this.state
-
-    const calculateCompletedTask = (completedTask.length / tasks.length) * 100;
-    const percentage = calculateCompletedTask.toFixed(0)
-    // console.log(`${percentage}%`)
-
-    // get todays date
-    const d = new Date()
-    const weekDay = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-    const day = weekDay[d.getDay()]
-    const month = months[d.getMonth()]
-    const date = d.getDate()
-    const year = d.getFullYear()
-
-    const searchFilter = tasks
-      .filter(todo =>
-        todo.task.toLowerCase().includes(searchTaskValue.toLowerCase())
-        ||
-        todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
-    return (
-      <div id="app">
-
-        <header>
-          <div className="date">
-            <TodaysDate day={day} month={month} date={date} year={year} />
-            <button className="btn-lg btn-danger" onClick={this.handleLogout}>Log Out!</button>
-          </div>
-          <div className="type-of-tasks">
-            <PersonalTask tasks={tasks} />
-            <BusinessTask tasks={tasks} />
-          </div>
-          <div className="task-completion">
-            <span>{percentage === 'NaN' ? 0 : percentage}% done</span>
-          </div>
-        </header>
-
-        {tasks.length > 1 && <SearchTask searchTask={this.searchTask} />}
-
-        <ul>
-          {
-            searchFilter.map(todo =>
-=======
     
     render() {
       const {tasks, searchTaskValue, completedTask} = this.state
