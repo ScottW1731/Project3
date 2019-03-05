@@ -123,7 +123,7 @@ class Task extends React.Component {
       const month = months[d.getMonth()]
       const date = d.getDate()
       const year = d.getFullYear()
-      // here
+
       const searchFilter = tasks
             .filter(todo => 
             todo.task.toLowerCase().includes(searchTaskValue.toLowerCase()) 
@@ -176,7 +176,6 @@ class Task extends React.Component {
   const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
   const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
   const ChoreTask = ({tasks}) => TypeCount(tasks, "Chore")
-  
   const TodaysDate = ({ day, month, date, year }) => (
     <p>
       {day}{" "}
@@ -186,6 +185,4 @@ class Task extends React.Component {
     </p>
   );
 
-
 export default Task;
-
