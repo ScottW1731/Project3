@@ -1,7 +1,7 @@
 
 module.exports = {
-    student: require("./student"),
-    mentor: require("./mentor"),
-    User: require("./User")
-  };
-  
+  User: require("./User"),
+  Student: require("./Student"),
+  Mentor: require("./Mentor"),
+  Task: require("./Task")
+};

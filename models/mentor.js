@@ -2,13 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const mentorSchema = new Schema({
-  mentorname: { type: String, required: true },
-  password: { type: String, required: true },
 
-  date: { type: Date, default: Date.now }
+    userName: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    students: [{
+        type: Schema.Types.ObjectId,
+        ref: "Student"
+    }]
 });
 
-//   mentorname: String,
-const mentor = mongoose.model("mentor", mentorSchema);
+const Mentor = mongoose.model("Mentor", mentorSchema);
 
-module.exports = mentor;
+module.exports = Mentor;
