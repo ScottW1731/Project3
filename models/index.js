@@ -5,4 +5,3 @@ module.exports = {
   Mentor: require("./Mentor"),
   Task: require("./Task")
 };
-
