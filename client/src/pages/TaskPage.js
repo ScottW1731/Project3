@@ -86,6 +86,7 @@ class Task extends React.Component {
 
   saveEditTask = (task, id) => {
     const { tasks } = this.state
+    // eslint-disable-next-line
     tasks.map(todo => { // error: expected to return a value in arrow function???
       if (todo.id === id) {
         todo.task = task

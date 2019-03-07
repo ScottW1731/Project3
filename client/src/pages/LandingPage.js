@@ -1,6 +1,7 @@
 import React from "react";
 import "./LandingPage.scss";
 import Task from "./TaskPage";
+import QuoteMachine from "../components/QuoteMachine"
 
 var projectList = [
   {
@@ -205,6 +206,7 @@ class LandingPage extends React.Component {
   handler() {}
 
   render() {
+    // eslint-disable-next-line
     const { children } = this.props;
     return (
       <main>
@@ -219,6 +221,7 @@ class LandingPage extends React.Component {
         </div>
 
         <ProjectList projects={projectList} />
+        <QuoteMachine />
       </main>
     );
   }
