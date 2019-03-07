@@ -8,30 +8,31 @@ import "./TaskPage.css"
 import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
 class Task extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      tasks: [
-        {
-          id: 1,
-          task: 'Meeting Today',
-          type: 'Business'
-        },
-        {
-          id: 2,
-          task: 'Work Out',
-          type: 'Personal'
-        }, {
-          id: 3,
-          task: 'Learn React',
-          type: 'Personal'
-        }
-      ],
-      searchTaskValue: '',
-      completedTask: []
+    constructor(props) {
+      super(props)
+      this.state = {
+        tasks: [
+          {
+            id: 1,
+            task: 'Math Homework',
+            type: 'School'
+          },
+          {
+            id: 2,
+            task: 'Work Out',
+            type: 'Personal'
+          }, {
+            id: 3,
+            task: 'Wash Dishes',
+            type: 'Chores'
+          }
+        ],
+        searchTaskValue: '',
+        completedTask: []
+      }
     }
-  }
-
+    
+    
   handleLogout = (e) => {
     //removes token from localStorage, effectively logging user out, then redirects back go login page
     e.preventDefault();
@@ -85,6 +86,7 @@ class Task extends React.Component {
 
   saveEditTask = (task, id) => {
     const { tasks } = this.state
+    // eslint-disable-next-line
     tasks.map(todo => { // error: expected to return a value in arrow function???
       if (todo.id === id) {
         todo.task = task
@@ -122,23 +124,25 @@ class Task extends React.Component {
       const month = months[d.getMonth()]
       const date = d.getDate()
       const year = d.getFullYear()
-      
+
       const searchFilter = tasks
-                        .filter(todo => 
-                         todo.task.toLowerCase().includes(searchTaskValue.toLowerCase()) 
-                         || 
-                         todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
+            .filter(todo => 
+            todo.task.toLowerCase().includes(searchTaskValue.toLowerCase()) 
+            || 
+            todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
       return (
         <div id="app">
           <Nav/>
           <header>
-
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
+              {/* logout button -- move if needed */}
+            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />
-              <BusinessTask tasks={tasks} />
+              <SchoolTask tasks={tasks} />
+              <ChoreTask tasks={tasks}/>
             </div>
             <div className="task-completion">
               <span>{percentage === 'NaN' ? 0 : percentage }% done</span>
@@ -166,22 +170,22 @@ class Task extends React.Component {
     )
   }
 }
-const TypeCount = (list, type) => (
-  <p>
-    {list.filter(l => l.type === type).length} <span>{type}</span>
-  </p>
-);
-
-const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
-const BusinessTask = ({ tasks }) => TypeCount(tasks, "Business");
-
-const TodaysDate = ({ day, month, date, year }) => (
-  <p>
-    {day}{" "}
-    <span>
-      {month} {date}, {year}
-    </span>
-  </p>
-);
+  const TypeCount = (list, type) => (
+    <p>
+      {list.filter(l => l.type === type).length} <span>{type}</span>
+    </p>
+  );
+  
+  const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
+  const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
+  const ChoreTask = ({tasks}) => TypeCount(tasks, "Chore")
+  const TodaysDate = ({ day, month, date, year }) => (
+    <p>
+      {day}{" "}
+      <span>
+        {month} {date}, {year}
+      </span>
+    </p>
+  );
 
 export default Task;

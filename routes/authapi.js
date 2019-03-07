@@ -6,11 +6,11 @@ var userAuthHelper = require('../helpers/helpers.js');
 router.post("/new", function (req, res) {
     var salt = userAuthHelper.getSalt(); //generate new salt
     var newUser = { //setup user object
-        // firstName: req.body.firstName.trim().toLowerCase(),
-        // lastName: req.body.lastName.trim().toLowerCase(),
-        // mentorMentee: req.body.mentorMentee,
-        email: req.body.email.trim().toLowerCase(),
-        // userName: req.body.userName.trim().toLowerCase(),
+        firstName: req.body.firstName.trim().toLowerCase(),
+        lastName: req.body.lastName.trim().toLowerCase(),
+        mentorMentee: req.body.mentorMentee,
+        // email: req.body.email.trim().toLowerCase(),
+        userName: req.body.userName.trim().toLowerCase(),
         hash: userAuthHelper.getHash(req.body.password, salt),
         salt: salt
     }
@@ -33,12 +33,12 @@ router.post("/new", function (req, res) {
 });
 
 router.post("/login", function (req, res) { //attempting to login
-    const email = req.body.email;
-    // const userName = req.body.userName;
+    // const email = req.body.email;
+    const userName = req.body.userName;
     const pass = req.body.password;
     db.User
         .findOne({
-            email
+            userName
         },
             function (error, response) {
                 if (error) {
@@ -50,12 +50,14 @@ router.post("/login", function (req, res) { //attempting to login
                 }
 
                 if (response) {
+                    // console.log(response)
                     var inputHash = userAuthHelper.getHash(pass, response.salt) //hash the password attempt with found salt
                     if (inputHash === response.hash) { //if hashed input is equal to hash in db, login successful
                         res.json({
                             success: true,
                             message: "Login authorized!",
-                            token: userAuthHelper.generateJWT(response)
+                            token: userAuthHelper.generateJWT(response),
+                            mentorMentee: response.mentorMentee
                         });
                     } else { //otherwise a failure
                         return res.status(400).json({
