@@ -52,7 +52,9 @@ class Task extends React.Component {
     
     saveEditTask = (task, id) => {
       const { tasks } = this.state
+      // eslint-disable-next-line
       tasks.map(todo => {
+        // eslint-disable-next-line
         if(todo.id === id) {
           todo.task = task
         }

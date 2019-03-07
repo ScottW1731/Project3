@@ -205,6 +205,7 @@ class LandingPage extends React.Component {
   handler() {}
 
   render() {
+    // eslint-disable-next-line
     const { children } = this.props;
     return (
       <main>
