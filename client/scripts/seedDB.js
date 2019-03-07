@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const db = require("../models");
+const db = require("../../models");
 
 // This file empties the students collection and inserts the students below as well as for mentors
 // npm run seed to insert into mongodb from base folder Project3
