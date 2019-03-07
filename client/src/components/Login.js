@@ -49,8 +49,8 @@ class Login extends Component {
                                 <label htmlFor="exampleInputPassword1">Password</label>
                                 <input onChange={this.props.handleInputChange} name="password" value={this.props.password} type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
                             </div>
-                            <button type="submit" onClick={this.handleLogin} className="btn btn-primary">Submit</button>
-                            <button onClick={this.props.handleSwitch} className="btn btn-success">Register!</button>
+                            <button type="submit" onClick={this.handleLogin} className="btn btn-info">Submit</button>
+                            <button onClick={this.props.handleSwitch} className="btn btn-primary">Register!</button>
                             {/* <Form
                                 email={this.props.email}
                                 userName={this.props.userName}

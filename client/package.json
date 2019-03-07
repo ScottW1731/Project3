@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@nivo/calendar": "^0.52.1",
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",

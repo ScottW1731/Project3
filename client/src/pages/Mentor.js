@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import Calendar from "../components/calendar"
 
 
 
@@ -42,6 +43,7 @@ class Mentor extends Component {
         return (
             <div>
                 <h1>Mentor page</h1>
+                <div className="jumbotron"><Calendar/></div>
                 <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
             </div>
         )
