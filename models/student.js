@@ -2,13 +2,21 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-  studentname: { type: String, required: true },
-  password: { type: String, required: true },
-
-  date: { type: Date, default: Date.now }
+    userName: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    mentor: {
+        type: Schema.Types.ObjectId,
+        ref: "Mentor"
+    },
+    tasks: [{
+        type: Schema.Types.ObjectId,
+        ref: "Task"
+    }]
 });
 
-//   mentorname: String,
-const student = mongoose.model("student", studentSchema);
 
-module.exports = student;
+const Student = mongoose.model("Student", studentSchema);
+
+module.exports = Student;
