@@ -9,9 +9,9 @@ mongoose.connect(
   "mongodb://localhost/student"
 );
 
-const studentSeed = [
+const userSeed = [
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Scott", 
     last : "Wagner", 
     password : "example11", 
@@ -19,57 +19,42 @@ const studentSeed = [
     date: new Date(Date.now())
   },
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Homer", 
     last : "Simpson", 
     password : "example21",
     email:"example21@gmail.com"
   },
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Bart", 
     last : "Simpson", 
     password : "example31",
     email:"example31@gmail.com"
   },
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Marge", 
     last : "Simpson", 
     password : "example41",
     email:"example41@gmail.com"
   },
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Lisa", 
     last : "Simpson", 
     password : "example51",
     email:"example51@gmail.com"
   },
   {
-    title : "student", 
+    mentorMentee : "student", 
     first : "Maggie", 
     last : "Simpson", 
     password : "example61", 
     email:"example61@gmail.com"
-  }
-];
-
-db.student
-  .remove({})
-  .then(() => db.student.collection.insertMany(studentSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
-
-const mentorSeed = [
+  },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Jamie", 
     last : "Benn", 
     password : "example10", 
@@ -77,35 +62,35 @@ const mentorSeed = [
     date: new Date(Date.now())
   },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Tyler", 
     last : "Seguin", 
     password : "example20",
     email:"example20@gmail.com"
   },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Alexander", 
     last : "Radulov", 
     password : "example30",
     email:"example30@gmail.com"
   },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Radek", 
     last : "Faksa", 
     password : "example40",
     email:"example40@gmail.com"
   },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Ben", 
     last : "Bishop", 
     password : "example50",
     email:"example50@gmail.com"
   },
   {
-    title : "mentor", 
+    mentorMentee : "mentor", 
     first : "Anton", 
     last : "Khudobin", 
     password : "example60",
@@ -113,9 +98,9 @@ const mentorSeed = [
   }
 ];
 
-db.mentor
+db.user
   .remove({})
-  .then(() => db.mentor.collection.insertMany(mentorSeed))
+  .then(() => db.user.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
