@@ -16,7 +16,7 @@ class Login extends Component {
                 mentorMentee: this.props.mentorMentee
             })
             .then((response) => {
-                // console.log(response.data.mentorMentee);
+                console.log(response.data.mentorMentee);
                 localStorage.setItem("loginToken", response.data.token)
                 if (response.data.mentorMentee === "student") {
                     this.props.gotoTask()
