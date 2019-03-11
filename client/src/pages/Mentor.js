@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import Calendar from "../components/calendar"
+import Calendar from "../components/calendar";
 
 
 
