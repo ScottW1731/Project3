@@ -5,6 +5,8 @@ import React from "react";
 // import George6 from "../assets/img/George6"
 
 
+// onClickHandle()
+
 class Carousel extends React.Component {
     render() {
         return (
@@ -13,13 +15,13 @@ class Carousel extends React.Component {
                 <div id="carousel-example-2" className="carousel slide carousel-fade" data-ride="carousel">
 
                     <ol className="carousel-indicators">
-                        <li data-target="#carousel-example-1" data-slide-to="0" className="active"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="0" className="active"></li>
                         <li data-target="#carousel-example-2" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-3" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-2" data-slide-to="2"></li>
                     </ol>
 
                     <div className="carousel-inner" role="listbox">
-                        <div className="carousel-item active">
+                        <div className="carousel-item">
                             <div className="view">
                                 <img className="d-block w-100" src="https://media.giphy.com/media/CWf0BHVFANlhS/giphy.gif" alt="First slide" />
                                 <div className="mask rgba-black-light"></div>
@@ -40,16 +42,48 @@ class Carousel extends React.Component {
                                 <p>Secondary text</p>
                             </div>
                         </div>
-                        <div className="carousel-item">
+                        <div className="carousel-item active ">
+                        <div className="row">
 
-                            <div className="view">
-                                <img className="d-block w-100" src="https://media.giphy.com/media/l3UcFYeOkjUdB7xao/giphy.gif" alt="Third slide" />
-                                <div className="mask rgba-black-slight"></div>
-                            </div>
-                            <div className="carousel-caption">
-                                <h3 className="h3-responsive">Slight mask</h3>
-                                <p>Third text</p>
-                            </div>
+                        <div className="col-md-4">
+        <div className="card mb-2">
+          <img className="card-img-top" src="https://media.giphy.com/media/TlYLzJEIUuYLu/giphy.gif"
+            alt="Card image cap"/>
+          <div className="card-body">
+            <h4 className="card-title">Card title</h4>
+            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a className="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-md-4">
+        <div className="card mb-2">
+          <img className="card-img-top" src="https://media.giphy.com/media/TlYLzJEIUuYLu/giphy.gif"
+            alt="Card image cap"/>
+          <div className="card-body">
+            <h4 className="card-title">Card title</h4>
+            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a className="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="col-md-4">
+        <div className="card mb-2">
+          <img className="card-img-top" src="https://media.giphy.com/media/TlYLzJEIUuYLu/giphy.gif"
+            alt="Card image cap"/>
+          <div className="card-body">
+            <h4 className="card-title">Card title</h4>
+            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+            <a className="btn btn-primary">Button</a>
+          </div>
+        </div>
+      </div>
+                        </div>
                         </div>
                     </div>
 
