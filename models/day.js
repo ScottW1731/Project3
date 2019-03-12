@@ -1,14 +1,22 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const calendarSchema = new Schema({
-  day: { type: String, required: true },
-  value: { type: Number, required: true },
+const daySchema = new Schema({
+    student: {
+        type: Schema.Types.ObjectId,
+        ref: "Student"
+    },
+    percentageComplete: {
+        type: Number
+    },
+    mood: {
+        type: String
+    },
+    comment: {
+        type: String
+    }
+})
 
-//   date: { type: Date, default: Date.now }
-});
+const Day = mongoose.model("Day", daySchema);
 
-//   mentorname: String,
-const day = mongoose.model("day", calendarSchema);
-
-module.exports = day;
+module.exports = Day;
