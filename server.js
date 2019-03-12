@@ -31,6 +31,17 @@ app.get("/api/validateuser", function (req, res) {
     message: "logged in successfully!"
   });
 });
+app.get("/api/users", function (req, res) {
+  db.User.find({})
+    .then(function (dbUser) {
+      console.log(dbUser)
+      res.json(dbUser)
+    })
+    .catch(function (err) {
+      // If an error occurs, send the error back to the client
+      res.json(err);
+    });
+})
 
 
 // Connect to the Mongo DB

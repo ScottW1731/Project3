@@ -74,4 +74,14 @@ router.post("/login", function (req, res) { //attempting to login
             })
 })
 
+router.get("/findStudents", function (req, res) {
+    db.User
+        .find({ mentorMentee: "student" },
+            function (response) {
+                console.log(response);
+                res.json(response)
+            })
+
+})
+
 module.exports = router;

@@ -37,7 +37,7 @@ class Task extends React.Component {
     //removes token from localStorage, effectively logging user out, then redirects back go login page
     e.preventDefault();
     localStorage.removeItem("loginToken");
-    this.props.history.push("/admin");
+    this.props.history.push("/");
   }
 
   componentDidMount() {
