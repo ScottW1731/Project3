@@ -43,7 +43,7 @@ class Task extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem("loginToken"); //retrieve token from localStorage
     if (!token) { //if token doesnt exist, redirect back to home
-      this.props.history.push("/admin");
+      this.props.history.push("/");
     } else { //otherwise try and hit user validation route
       axios
         .get(
@@ -58,7 +58,7 @@ class Task extends React.Component {
         })
         .catch((error) => {
           console.error(error); //otherwise redirect back to home page.
-          this.props.history.push("/admin");
+          this.props.history.push("/");
         })
     }
   }
