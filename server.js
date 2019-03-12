@@ -9,7 +9,7 @@ const db = require(path.join(__dirname + "/models"));
 
 const jwt = require('express-jwt');
 const mongoose = require("mongoose");
-// const routes = require("./routes");
+const routes = require("./routes");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -21,16 +21,19 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // API routes
-app.use("/api/user", require("./routes/authapi"));
-app.use("api/validateuser", jwt({
-  secret: process.env.JWT_SECRET,
-  userProperty: 'payload'
-}));
-app.get("/api/validateuser", function (req, res) {
-  res.json({
-    message: "logged in successfully!"
-  });
-});
+app.use(routes);
+
+// app.use("/api/user", require("./routes/authapi"));
+// app.use("api/validateuser", jwt({
+//   secret: process.env.JWT_SECRET,
+//   userProperty: 'payload'
+// }));
+// app.get("/api/validateuser", function (req, res) {
+//   res.json({
+//     message: "logged in successfully!"
+//   });
+// });
+
 
 
 // Connect to the Mongo DB
