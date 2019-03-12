@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const userRoutes = require("./user");
+const userRoutes = require("./userRoute");
 const validateRoutes = require("./validateUser");
-const mentorRoutes = require("./mentor");
-const studentRoutes = require("./student");
+const mentorRoutes = require("./mentorRoute");
+const studentRoutes = require("./studentRoute");
+const taskRoutes = require("./taskRoute");
 
 // authorize user
 router.use("/user", userRoutes);
@@ -12,5 +13,7 @@ router.use("/", validateRoutes);
 router.use("/mentor", mentorRoutes);
 // student
 router.use("/student", studentRoutes);
+// task
+router.use("/task", taskRoutes);
 
 module.exports = router;

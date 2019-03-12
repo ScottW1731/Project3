@@ -75,8 +75,8 @@ router.post("/login", function (req, res) { //attempting to login
             })
 });
 
-router.get("/findUsers", function (req, res) {
-    db.User.find({mentorMentee: "mentor"})
+router.get("/find", function (req, res) {
+    db.User.find({})
         .then(function (dbUser) {
             // console.log(dbUser);
             res.json(dbUser);
