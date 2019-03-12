@@ -3,7 +3,7 @@ import axios from 'axios';
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
-import "./TaskPage.css"
+import "./TaskPage.scss"
 
 // import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
