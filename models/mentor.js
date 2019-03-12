@@ -6,10 +6,10 @@ const mentorSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User"
     },
-    students: [{
-        type: Schema.Types.ObjectId,
-        ref: "Student"
-    }]
+    // students: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Student"
+    // }]
 });
 
 const Mentor = mongoose.model("Mentor", mentorSchema);
