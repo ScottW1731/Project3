@@ -39,12 +39,21 @@ class Mentor extends Component {
         }
     }
 
+    loadStudents = (e) => {
+        e.preventDefault();
+
+    }
+
     render() {
         return (
             <div>
                 <h1>Mentor page</h1>
                 <div className="jumbotron"><Calendar/></div>
                 <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
+                <div>
+                    <button className="btn-lg btn-primary" onClick={this.loadStudents}>Add Students</button>
+                    <div id="studentDiv"></div>
+                </div>
             </div>
         )
     }

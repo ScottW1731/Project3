@@ -10,6 +10,7 @@
     "bootstrap": "^4.3.1",
     "dotenv": "^6.2.0",
     "material-ui": "^0.20.2",
+    "mdbreact": "^4.11.0",
     "node-sass": "^4.11.0",
     "react": "^16.6.3",
     "react-bootstrap": "^1.0.0-beta.5",
@@ -22,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed": "node scripts/seedDB.js"
   },
   "browserslist": [
     ">0.2%",
