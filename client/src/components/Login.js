@@ -13,7 +13,6 @@ class Login extends Component {
                 // email: this.props.email,
                 userName: this.props.userName,
                 password: this.props.password,
-                mentorMentee: this.props.mentorMentee
             })
             .then((response) => {
                 console.log(response.data.mentorMentee);

@@ -8,12 +8,9 @@ const studentSchema = new Schema({
     },
     mentor: {
         type: Schema.Types.ObjectId,
-        ref: "Mentor"
-    },
-    // tasks: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Task"
-    // }]
+        ref: "Mentor",
+        default: "5c83cc7eaf8d0e095a6a8d89"
+    }
 });
 
 

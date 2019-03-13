@@ -15,10 +15,18 @@ class Register extends Component {
                 password: this.props.password
             })
             .then((response) => {
-                console.log(response.data); //on success, set loginToken in localStorage and go to dashboard
+                console.log(response.config.data); //on success, set loginToken in localStorage and go to dashboard
                 localStorage.setItem("loginToken", response.data.token);
                 if (this.props.mentorMentee === "student") {
-                    this.props.gotoTask()
+                    axios
+                        .get("/api/user/findUser/:userName", {
+                            userName: this.props.userName
+                        })
+                        .then ((response) => {
+                            console.log(this.props.userName)
+                            console.log(response.data)
+                            this.props.gotoTask()
+                        })
                 } else {
                     this.props.gotoMentor();
                 }

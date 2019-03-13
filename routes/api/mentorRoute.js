@@ -1,7 +1,7 @@
 const router = require("express").Router();
 var db = require('../../models');
 
-router.get("/find", function (req, res) {
+router.get("/findAll", function (req, res) {
     db.Mentor.find({})
         .populate("user")
         .then(function (dbUser) {

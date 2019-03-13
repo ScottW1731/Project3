@@ -2,9 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
-    student: {
+    // student: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Student"
+    // },
+    user: {
         type: Schema.Types.ObjectId,
-        ref: "Student"
+        ref: "User",
+        default: "5c83ff18a13f691440c3ca01"
     },
     taskName: {
         type: String,

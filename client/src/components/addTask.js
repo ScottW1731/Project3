@@ -38,7 +38,7 @@ class AddTaskForm extends React.Component {
       this.taskInput.value = "";
       this.setState({ selected: "" });
 
-      
+
     }
   };
 
