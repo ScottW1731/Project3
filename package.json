@@ -27,6 +27,8 @@
     "express-jwt": "^5.3.1",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.0",
-    "mongoose": "^5.3.16"
+    "mongoose": "^5.3.16",
+    "hapi": "^17.5.2",
+    "lokijs": "^1.5.5"
   }
 }
