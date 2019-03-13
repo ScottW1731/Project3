@@ -81,7 +81,7 @@ typings/
 /node_modules
 /.pnp
 .pnp.js
-package-lock.json
+
 
 # testing
 /coverage
@@ -101,4 +101,6 @@ yarn-debug.log*
 yarn-error.log*
 client/package-lock.json
 package-lock.json
+package-lock.json
+client/package-lock.json
 package-lock.json
