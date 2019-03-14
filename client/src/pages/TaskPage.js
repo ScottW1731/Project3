@@ -156,7 +156,7 @@ class Task extends React.Component {
       return (
         <div id="app">
           <Nav/>
-          <header>
+          <div className="task-head">
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
             </div>
@@ -168,7 +168,7 @@ class Task extends React.Component {
             <div className="task-completion">
               <span>{percentage === 'NaN' ? 0 : percentage }% done</span>
             </div>
-          </header>
+          </div>
           
           {tasks.length > 1 && <SearchTask searchTask={this.searchTask} />}
           

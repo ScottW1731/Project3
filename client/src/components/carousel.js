@@ -51,9 +51,9 @@ class Carousel extends React.Component {
           <div className="carousel-item">
       //                   <div className="row">
 
-      //                   <div className="col-md-4">
-      //   <div className="card mb-2">
-      //     <img className="card-img-top" src={require("../assets/img/image.png")}
+        <div className="col-md-4">
+         <div className="card mb-2">
+         <img className="card-img-top" src={require("../assets/img/image.png")}
             alt="Card image cap"/>
           <div className="card-body">
             <h4 className="card-title">Beau "BackEnd Beast" Simpson</h4>
@@ -137,3 +137,92 @@ class Carousel extends React.Component {
 };
 
 export default Carousel;
+
+// import React, { Component } from 'react';
+// import Slide from '../components/Slide';
+// // import LeftArrow from '../components/LeftArrow';
+// // import RightArrow from '../components/RightArrow';
+// import BeauSlide from "../assets/slides/BeauSlide";
+// import ChaseSlide from "../assets/slides/ChaseSlide";
+// import ScottSlide from "../assets/slides/ScottSlide";
+// import ByronSlide from "../assets/slides/ByronSlide";
+
+// class Carousel extends Component {
+//   constructor(props) {
+//     super(props)
+
+//     this.state = {
+//       slides: [
+//         {BeauSlide},
+//         {ChaseSlide},
+//         {ScottSlide},
+//         {ByronSlide},
+//       ],
+//       currentIndex: 0,
+//       translateValue: 0
+//     }
+//   }
+
+//   goToPrevSlide = () => {
+
+//   }
+
+//   goToNextSlide = () => {
+//     // Exiting the method early if we are at the end of the images array.
+//     // We also want to reset currentIndex and translateValue, so we return
+//     // to the first image in the array.
+//     if(this.state.currentIndex === this.state.images.length - 1) {
+//       return this.setState({
+//         currentIndex: 0,
+//         translateValue: 0
+//       })
+//     }
+    
+//     // This will not run if we met the if condition above
+//     this.setState(prevState => ({
+//       currentIndex: prevState.currentIndex + 1,
+//       translateValue: prevState.translateValue + -(this.slideWidth())
+//     }));
+//   }
+
+//   slideWidth = () => {
+//      return document.querySelector('.slide').clientWidth
+//   }
+
+//   RightArrow = () => {
+//     return (
+//       <div className="nextArrow">
+//         <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+//       </div>
+//     );
+//   }
+
+//   render() {
+//     return (
+//       <div className="slider">
+
+//         <div className="slider-wrapper"
+//           style={{
+//             transform: `translateX(${this.state.translateValue}px)`,
+//             transition: 'transform ease-out 0.45s'
+//           }}>
+//             {
+//               this.state.slides.map((slide, i) => (
+//                 <Slide key={i} slide={slide} />
+//               ))
+//             }
+//         </div>
+
+//         <LeftArrow
+//          goToPrevSlide={this.goToPrevSlide}
+//         />
+
+//         <RightArrow
+//          goToNextSlide={this.goToNextSlide}
+//         />
+//       </div>
+//     );
+//   }
+// }
+
+// export default Carousel;
