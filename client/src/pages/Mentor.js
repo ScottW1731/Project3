@@ -72,6 +72,7 @@ class Mentor extends Component {
             <div>
                 <h1>Mentor page</h1>
                 <div className="container">
+
                     <div className="jumbotron"><Calendar /></div>
                 </div>
                 <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>

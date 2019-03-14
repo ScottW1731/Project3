@@ -3,7 +3,8 @@ import axios from 'axios';
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
-import "./TaskPage.scss"
+import "./TaskPage.scss";
+import Nav from "../components/Nav";
 
 // import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
@@ -130,51 +131,50 @@ class Task extends React.Component {
       })
   }
 
-  render() {
-    const { tasks, searchTaskValue, completedTask } = this.state
+    
+    render() {
+      const {tasks, searchTaskValue, completedTask} = this.state
+      
+      const calculateCompletedTask = (completedTask.length / tasks.length)* 100 ;
+      const percentage = calculateCompletedTask.toFixed(0)
+      // console.log(`${percentage}%`)
+      
+      // get todays date
+      const d = new Date()
+      const weekDay = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
+      const day = weekDay[d.getDay()]
+      const month = months[d.getMonth()]
+      const date = d.getDate()
+      const year = d.getFullYear()
 
-    const calculateCompletedTask = (completedTask.length / tasks.length) * 100;
-    const percentage = calculateCompletedTask.toFixed(0)
-    // console.log(`${percentage}%`)
-
-    // get todays date
-    const d = new Date()
-    const weekDay = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec']
-    const day = weekDay[d.getDay()]
-    const month = months[d.getMonth()]
-    const date = d.getDate()
-    const year = d.getFullYear()
-
-    const searchFilter = tasks
-      .filter(todo =>
-        todo.task.toLowerCase().includes(searchTaskValue.toLowerCase())
-        ||
-        todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
-    return (
-      <div id="app">
-        {/* <Nav/> */}
-        <header>
-          <div className="date">
-            <TodaysDate day={day} month={month} date={date} year={year} />
-            {/* logout button -- move if needed */}
-            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
-          </div>
-          <div className="type-of-tasks">
-            <PersonalTask tasks={tasks} />
-            <SchoolTask tasks={tasks} />
-            <ChoreTask tasks={tasks} />
-          </div>
-          <div className="task-completion">
-            <span>{percentage === 'NaN' ? 0 : percentage}% done</span>
-          </div>
-        </header>
-
-        {tasks.length > 1 && <SearchTask searchTask={this.searchTask} />}
-
-        <ul>
-          {
-            searchFilter.map(todo =>
+      const searchFilter = tasks
+            .filter(todo => 
+            todo.task.toLowerCase().includes(searchTaskValue.toLowerCase()) 
+            || 
+            todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
+      return (
+        <div id="app">
+          <Nav/>
+          <header>
+            <div className="date">
+              <TodaysDate day={day} month={month} date={date} year={year} />
+            </div>
+            <div className="type-of-tasks">
+              <PersonalTask tasks={tasks} />
+              <SchoolTask tasks={tasks} />
+              <ChoreTask tasks={tasks}/>
+            </div>
+            <div className="task-completion">
+              <span>{percentage === 'NaN' ? 0 : percentage }% done</span>
+            </div>
+          </header>
+          
+          {tasks.length > 1 && <SearchTask searchTask={this.searchTask} />}
+          
+          <ul>
+            {
+              searchFilter.map(todo => 
 
               <TodoTask key={todo.id}
                 {...todo}

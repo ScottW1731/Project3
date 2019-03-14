@@ -1,7 +1,7 @@
 import React from "react";
 import "./LandingPage.scss";
-import Admin from "./Admin/Admin";
-import Task from "./TaskPage";
+// import Admin from "./Admin/Admin";
+// import Task from "./TaskPage";
 import QuoteMachine from "../components/QuoteMachine"
 
 
