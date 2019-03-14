@@ -3,5 +3,6 @@ module.exports = {
   User: require("./User"),
   Student: require("./Student"),
   Mentor: require("./Mentor"),
-  Task: require("./Task")
+  Task: require("./Task"),
+  Day: require("./Day")
 };

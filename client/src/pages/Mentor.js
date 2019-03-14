@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import Calendar from "../components/calendar";
+import "./Mentor.scss";
 
 
 
@@ -60,7 +61,7 @@ class Mentor extends Component {
     loadTasks = () => {
         axios.get("/api/task/findAll")
             .then((response) => {
-                // console.log(response.data[0].completed)
+                // console.log(response.data[0].createdAt.substr(0,10))
                 this.setState({ tasks: response.data })
             })
             .catch(err => console.log(err));
@@ -70,21 +71,25 @@ class Mentor extends Component {
         return (
             <div>
                 <h1>Mentor page</h1>
-                <div className="jumbotron"><Calendar /></div>
+                <div className="container">
+                    <div className="jumbotron"><Calendar /></div>
+                </div>
                 <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
-                <div>
-                    {/* <button className="btn-lg btn-primary" onClick={this.loadStudents}>Add Students</button> */}
-                    <div id="studentTaskDiv">
-                        {this.state.tasks.map((task) => (
-                            <ul>
-                                <li key={task._id}>{task.user.firstName.toUpperCase()} | {task.taskName} | {task.category} | Completed: {task.completed.toString().toUpperCase()}</li>
-                            </ul>
-                        ))}
-                    </div>
+                {/* <div>
+                    <button className="btn-lg btn-primary" onClick={this.loadStudents}>Add Students</button>
+
+                </div> */}
+                <div id="studentTaskDiv">
+                    {this.state.tasks.map((task) => (
+                        <ul>
+                            <li key={task._id}>{task.user.firstName.toUpperCase()} | {task.taskName} | {task.category} | Completed: {task.completed.toString().toUpperCase()} | Created: {task.createdAt.substr(0, 10)}</li>
+                        </ul>
+                    ))}
                 </div>
             </div>
         )
     }
 };
+
 
 export default Mentor;
