@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models');
-var userAuthHelper = require('../helpers/helpers.js');
+var db = require('../../models');
+var userAuthHelper = require('../../helpers/helpers.js');
+
 //check helpers.js to see what getSalt, getHash, and generateJWT do
 router.post("/new", function (req, res) {
     var salt = userAuthHelper.getSalt(); //generate new salt
@@ -72,6 +73,25 @@ router.post("/login", function (req, res) { //attempting to login
                     })
                 }
             })
+});
+
+router.get("/findAll", function (req, res) {
+    db.User.find({_id})
+        .then(function (dbUser) {
+            // console.log(dbUser[0]._id);
+            res.json(dbUser);
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
+});
+
+router.get("/findUser/:userName", function (req, res) {
+    db.User.findOne({ userName: req.body.userName })
+        .then(function (dbUser) {
+            console.log(dbUser);
+            res.json(dbUser)
+        })
 })
 
 module.exports = router;

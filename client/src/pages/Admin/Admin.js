@@ -30,7 +30,7 @@ class Admin extends Component {
         })
     }
 
-    gotoTask = (res) => {
+    gotoTask = () => {
         console.log(this);
         this.props.history.push("/task");
     }

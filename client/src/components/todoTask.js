@@ -48,6 +48,7 @@ class TodoTask extends React.Component {
       const disableBtn = isComplete && "disable-btn";
   
       return (
+        <div className="col-6">
         <li>
           {isEdit ? (
             <form id="edit-task-form" onSubmit={this.saveEditTask}>
@@ -82,6 +83,7 @@ class TodoTask extends React.Component {
             </div>
           )}
         </li>
+        </div>
       );
     }
   }
