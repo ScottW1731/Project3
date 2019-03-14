@@ -92,7 +92,7 @@ const Project = props => {
               {project.title}{" "}
             </a>
           </span>
-          <MenuIcon index={props.index} id={props.menuId} />
+          {/* <MenuIcon index={props.index} id={props.menuId} /> */}
         </h2>
       </div>
       {/* <div className="mask" index={props.index}>
