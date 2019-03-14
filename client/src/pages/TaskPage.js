@@ -3,7 +3,8 @@ import axios from 'axios';
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
-import "./TaskPage.scss"
+import "./TaskPage.scss";
+import Nav from "../components/Nav";
 
 // import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
@@ -132,12 +133,10 @@ class Task extends React.Component {
             todo.type.toLowerCase().includes(searchTaskValue.toLowerCase()))
       return (
         <div id="app">
-          {/* <Nav/> */}
+          <Nav/>
           <header>
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
-              {/* logout button -- move if needed */}
-            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />

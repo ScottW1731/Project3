@@ -11,7 +11,7 @@ import calendarSeed from "../components/calendarDB"
 class Calendar extends React.Component{
 
 render() {
-
+    
     return(
         <ResponsiveCalendar
         data={calendarSeed}

@@ -1,6 +1,7 @@
 import React from "react";
 // import { MDBRow } from "mdbreact";
 import "./inspired.scss";
+import Nav from "../components/Nav"
 // import Mediacard from "../components/mediaCard"
 
 
@@ -19,7 +20,9 @@ class Inspired extends React.Component{
     render(){
         return(
     <div>        
-    <header className="masthead clear">
+        <Nav/>
+    <div>        
+    <header className="masthead">
         <div className="centered">
             
             <div className="site-branding">
@@ -94,6 +97,8 @@ class Inspired extends React.Component{
         </div>
         
     </main>
+    </div>
+
     </div>
     );
   }
