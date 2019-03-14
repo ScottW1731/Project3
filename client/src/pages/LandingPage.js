@@ -216,7 +216,7 @@ class LandingPage extends React.Component {
         <div className="page-title" id="pageTitle">
           <h1 className="page-title-h1" id="pageTitleH10">
             <span className="title breakline-listener" id="pageTitle0">
-              KEEP GOING
+              <img className="Keep-Logo" src={require("../assets/img/keep_going_logo_offwhite.png")}/>
             </span>
           </h1>
 
