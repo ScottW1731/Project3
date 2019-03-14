@@ -1,19 +1,22 @@
 import React from "react";
 import "./LandingPage.scss";
-import Task from "./TaskPage";
+// import Admin from "./Admin/Admin";
+// import Task from "./TaskPage";
 import QuoteMachine from "../components/QuoteMachine"
+
 
 var projectList = [
   {
-    title: "Student Login",
+    title: "Login",
     index: "1",
     summary: "Login and check your goals!",
-    href: Task,
+    
   },
   {
-    title: "Mentor Login",
+    title: "Get Inspired",
     index: "2",
-    summary: "Login here and check up on your Student"
+    summary: "Login here and check up on your Student",
+    
   },
   {
     title: "About Us",
@@ -60,7 +63,7 @@ const MenuIcon = props => {
     toggleClassName(_menuIconLinkNode, _linkNewClassName);
     toggleClassName(_projectTitleLinkNode, _linkNewClassName);
     const _currentColor = _projectTitleLinkNode.style;
-    console.log(_currentColor);
+    // console.log(_currentColor);
     toggleStyleAttribute(_projectSummaryDiv, "display", "none", "inline-block");
     toggleClassName(_projectSummaryDividerSpan, "project-divider-" + _index);
   };
@@ -92,7 +95,7 @@ const Project = props => {
           <MenuIcon index={props.index} id={props.menuId} />
         </h2>
       </div>
-      <div className="mask" index={props.index}>
+      {/* <div className="mask" index={props.index}>
         <div className="project-summary" index={props.index}>
           <p index={props.index}>{project.summary}</p>
           <span index={props.index} className="project-divider" />
@@ -100,75 +103,75 @@ const Project = props => {
             {project.tools}
           </h6>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };
 
 class ProjectList extends React.Component {
-//   componentDidMount() {
-//     // this.addBreaklineListeners();
-//     this.testBreak();
-//   }
+  // componentDidMount() {
+  //   // this.addBreaklineListeners();
+  //   this.testBreak();
+  // }
 
-//   addBreaklineListeners() {
-//     let breaklineElement = document.getElementById("breakline0");
-//     // console.log('firs', document.getElementById('pageTitleH10').firstChild.textContent)
-//     let pageTitleElement = document.getElementById("pageTitleH10").firstChild;
-//     Array.prototype.forEach.call(
-//       document.getElementsByClassName("breakline-listener"),
-//       listenerElement => {
-//         listenerElement.addEventListener(
-//           "mouseover",
-//           e => {
-//             e.preventDefault();
-//             let titleTextContent = document
-//               .getElementById("pageTitleH10")
-//               .firstChild.textContent.split("");
-//             const breaklineNewClassName =
-//               "breakline-" +
-//               listenerElement.id.slice(listenerElement.id.length - 1);
-//             this.setState({ breaklineCurrentClassName: breaklineNewClassName });
-//             changeClassName(breaklineElement, breaklineNewClassName);
+  // addBreaklineListeners() {
+  //   let breaklineElement = document.getElementById("breakline0");
+  //   // console.log('firs', document.getElementById('pageTitleH10').firstChild.textContent)
+  //   let pageTitleElement = document.getElementById("pageTitleH10").firstChild;
+  //   Array.prototype.forEach.call(
+  //     document.getElementsByClassName("breakline-listener"),
+  //     listenerElement => {
+  //       listenerElement.addEventListener(
+  //         "mouseover",
+  //         e => {
+  //           e.preventDefault();
+  //           let titleTextContent = document
+  //             .getElementById("pageTitleH10")
+  //             .firstChild.textContent.split("");
+  //           const breaklineNewClassName =
+  //             "breakline-" +
+  //             listenerElement.id.slice(listenerElement.id.length - 1);
+  //           this.setState({ breaklineCurrentClassName: breaklineNewClassName });
+  //           changeClassName(breaklineElement, breaklineNewClassName);
 
-//             const colorClassNameNew =
-//               colorClassNames[
-//                 Math.floor(Math.random() * colorClassNames.length)
-//               ];
-//             let insertOpen = [
-//               "<span class='listenRandom ",
-//               colorClassNameNew,
-//               "'>"
-//             ].join("");
-//             const insertClose = "</span>";
-//             // increment instead of random
-//             const getEntryPoint = array => {
-//               const ran = Math.floor(Math.random() * array.length);
-//               const _entryPoint =
-//                 array[ran] === " " ? getEntryPoint.call(array) : ran;
-//               return _entryPoint;
-//             };
-//             const entryIndex = getEntryPoint(titleTextContent);
-//             // console.log('text', titleTextContent);
-//             // console.log('entryIndex,', entryIndex, 'text[entry]: ', titleTextContent[entryIndex], 'last,', titleTextContent[titleTextContent.length-1]);
-//             titleTextContent.splice(
-//               entryIndex,
-//               1,
-//               insertOpen,
-//               titleTextContent[entryIndex],
-//               insertClose
-//             );
-//             pageTitleElement.innerHTML = titleTextContent.join("");
-//             titleTextContent = document
-//               .getElementById("pageTitleH10")
-//               .textContent.split("");
-//             console.log(titleTextContent);
-//           },
-//           false
-//         );
-//       }
-//     );
-//   }
+  //           const colorClassNameNew =
+  //             colorClassNames[
+  //               Math.floor(Math.random() * colorClassNames.length)
+  //             ];
+  //           let insertOpen = [
+  //             "<span class='listenRandom ",
+  //             colorClassNameNew,
+  //             "'>"
+  //           ].join("");
+  //           const insertClose = "</span>";
+  //           // increment instead of random
+  //           const getEntryPoint = array => {
+  //             const ran = Math.floor(Math.random() * array.length);
+  //             const _entryPoint =
+  //               array[ran] === " " ? getEntryPoint.call(array) : ran;
+  //             return _entryPoint;
+  //           };
+  //           const entryIndex = getEntryPoint(titleTextContent);
+  //           // console.log('text', titleTextContent);
+  //           // console.log('entryIndex,', entryIndex, 'text[entry]: ', titleTextContent[entryIndex], 'last,', titleTextContent[titleTextContent.length-1]);
+  //           titleTextContent.splice(
+  //             entryIndex,
+  //             1,
+  //             insertOpen,
+  //             titleTextContent[entryIndex],
+  //             insertClose
+  //           );
+  //           pageTitleElement.innerHTML = titleTextContent.join("");
+  //           titleTextContent = document
+  //             .getElementById("pageTitleH10")
+  //             .textContent.split("");
+  //           console.log(titleTextContent);
+  //         },
+  //         false
+  //       );
+  //     }
+  //   );
+  // }
 
   render() {
     return (
@@ -183,7 +186,7 @@ class ProjectList extends React.Component {
               }
               h2Id={"projectTitle" + (index + 1).toString()}
               listenerId={"breaklineListener" + (index + 1).toString()}
-              href="#"
+              href={"/Admin" + (index)}
               menuId={"project-" + (index + 1).toString() + "-menu"}
             />
           );

@@ -3,47 +3,48 @@ import axios from 'axios';
 import SearchTask from "../components/searchTask";
 import TodoTask from "../components/todoTask";
 import AddTaskForm from "../components/addTask";
-import "./TaskPage.css"
+import "./TaskPage.scss";
+import Nav from "../components/Nav";
 
-import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
+// import Nav from "../components/Nav"; // error: module not found: Can't resolve './components/Nav'???
 
 class Task extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        tasks: [
-          {
-            id: 1,
-            task: 'Math Homework',
-            type: 'School'
-          },
-          {
-            id: 2,
-            task: 'Work Out',
-            type: 'Personal'
-          }, {
-            id: 3,
-            task: 'Wash Dishes',
-            type: 'Chores'
-          }
-        ],
-        searchTaskValue: '',
-        completedTask: []
-      }
+  constructor(props) {
+    super(props)
+    this.state = {
+      tasks: [
+        {
+          id: 1,
+          task: 'Math Homework',
+          type: 'School'
+        },
+        {
+          id: 2,
+          task: 'Work Out',
+          type: 'Personal'
+        }, {
+          id: 3,
+          task: 'Wash Dishes',
+          type: 'Chore'
+        }
+      ],
+      searchTaskValue: '',
+      completedTask: []
     }
-    
-    
+  }
+
+
   handleLogout = (e) => {
     //removes token from localStorage, effectively logging user out, then redirects back go login page
     e.preventDefault();
     localStorage.removeItem("loginToken");
-    this.props.history.push("/admin");
+    this.props.history.push("/");
   }
 
   componentDidMount() {
     const token = localStorage.getItem("loginToken"); //retrieve token from localStorage
     if (!token) { //if token doesnt exist, redirect back to home
-      this.props.history.push("/admin");
+      this.props.history.push("/");
     } else { //otherwise try and hit user validation route
       axios
         .get(
@@ -58,10 +59,22 @@ class Task extends React.Component {
         })
         .catch((error) => {
           console.error(error); //otherwise redirect back to home page.
-          this.props.history.push("/admin");
+          this.props.history.push("/");
         })
     }
+
+    this.loadTasks();
   }
+
+
+  loadTasks = () => {
+    axios.get("/api/task/findAll")
+      .then((response) => {
+        console.log(response.data)
+        // this.setState({ tasks: response.data })
+      })
+      .catch(err => console.log(err));
+  };
 
   deleteTask = (id) => {
     const { tasks, completedTask } = this.state;
@@ -107,7 +120,17 @@ class Task extends React.Component {
     this.setState({
       completedTask
     })
+
+    // edit completed tasks
+    axios
+      .post("/api/task/updateTask", {
+        // id: response.data[0]._id,
+      })
+      .then((response) => {
+        console.log(response.data)
+      })
   }
+
     
     render() {
       const {tasks, searchTaskValue, completedTask} = this.state
@@ -136,8 +159,6 @@ class Task extends React.Component {
           <header>
             <div className="date">
               <TodaysDate day={day} month={month} date={date} year={year} />
-              {/* logout button -- move if needed */}
-            <button className="btn-lg btn-primary" onClick={this.handleLogout}>Log Out!</button>
             </div>
             <div className="type-of-tasks">
               <PersonalTask tasks={tasks} />
@@ -170,22 +191,22 @@ class Task extends React.Component {
     )
   }
 }
-  const TypeCount = (list, type) => (
-    <p>
-      {list.filter(l => l.type === type).length} <span>{type}</span>
-    </p>
-  );
-  
-  const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
-  const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
-  const ChoreTask = ({tasks}) => TypeCount(tasks, "Chore")
-  const TodaysDate = ({ day, month, date, year }) => (
-    <p>
-      {day}{" "}
-      <span>
-        {month} {date}, {year}
-      </span>
-    </p>
-  );
+const TypeCount = (list, type) => (
+  <p>
+    {list.filter(l => l.type === type).length} <span>{type}</span>
+  </p>
+);
+
+const PersonalTask = ({ tasks }) => TypeCount(tasks, "Personal");
+const SchoolTask = ({ tasks }) => TypeCount(tasks, "School");
+const ChoreTask = ({ tasks }) => TypeCount(tasks, "Chore")
+const TodaysDate = ({ day, month, date, year }) => (
+  <p>
+    {day}{" "}
+    <span>
+      {month} {date}, {year}
+    </span>
+  </p>
+);
 
 export default Task;
