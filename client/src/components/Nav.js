@@ -1,6 +1,7 @@
 import React from "react";
 // import LandingPage from "../pages/LandingPage";
 // import Navbar from "react-bootstrap/Navbar";
+import "./Nav.scss"
 
 class Nav extends React.Component {
     render(){
@@ -9,7 +10,7 @@ class Nav extends React.Component {
             <nav className="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top">
           
               
-              <a className="navbar-brand" href="/">Keep Going</a>
+              <a className="navbar-brand" id="navbar" href="/">Keep Going</a>
           
               
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,10 +28,10 @@ class Nav extends React.Component {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="Admin1">Inspired</a>
+                    <a className="nav-link" id="nav-insp" href="Admin1">Inspired</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="/Admin2">About Us</a>
+                    <a className="nav-link" id="nav-about" href="/Admin2">About Us</a>
                   </li>
                 </ul>
                 
