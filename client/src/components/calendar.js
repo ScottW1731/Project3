@@ -48,8 +48,8 @@ class Calendar extends React.Component {
         return (
             <ResponsiveCalendar
                 data={calendarSeed}
-                from="2016-01-01"
-                to="2016-012-31"
+                from="2017-01-01"
+                to="2019-012-31"
                 emptyColor="#eeeeee"
                 colors={[
                     "#61cdbb",
