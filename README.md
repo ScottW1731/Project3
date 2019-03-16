@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Keep Going
 
-## Available Scripts
+### A full-Stack web application built by:
+- [Byron Roberts](https://github.com/ByronPRoberts)
+- [Scott Wagner](https://github.com/ScottW1731)
+- [Chase Jenkins](https://github.com/cjenkins3)
+- [Beau Simpson](https://github.com/beausimpson)
 
-In the project directory, you can run:
 
-### `npm start`
+#### [Deployed Site](https://keep-going-app.herokuapp.com/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Sample Log-ins to test on deployed site:
+- Mentor:
+     - username: mentorexample
+     - password: 1234
+- Student:
+    - username: studentexample
+    - password: 1234
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### To test locally:
+- Clone the [repo](https://github.com/ScottW1731/Project3)
+- Run ``` npm install ``` in the project folder
+- Make sure you have the mongo database running locally with ``` mongod```
+- Run ```npm start``` to start developmental server
+- You will need create log-ins to test as the sample log-ins are not saved locally
 
-### `npm test`
+#### Deployed on Heroku using Mongolab for the database
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Built using:
+- HTML
+- CSS
+- Bootstrap CSS Framework
+- JavaScript
+- jQuery
+- Node.js
+- Express.js
+- Mongoose.js
+- Mongo Database
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Dependencies:
+- axios
+- cross-env
+- dotenv
+- express-jwt
+- if-env
+- jsonwebtoken
+- material-ui
