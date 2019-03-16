@@ -69,11 +69,11 @@ class About extends React.Component {
             <br></br>
             Sadly often Mentors are the only ones keeping their students accountable, be it with Academics or even their own personal goals.
             <br></br>
-            The problem arises when Mentor and Mentee don't have the ability or time for constant personal interaction as life can be dificult and certain boundaries must be maintained
+            The problem arises when Mentor and Mentee don't have the ability or time for constant personal interaction as life can be difficult and certain boundaries must be maintained
             <br></br>
             At Keep Going, We set out to create a healthy and safe way for both Mentor and Mentee to be able to interact with each other online.
            <br></br>
-            By using Keep Going a certain level of accountablility can be maintained through distance and lack of interaction. </h7>
+            By using Keep Going a certain level of accountability can be maintained through distance and lack of interaction. </h7>
           </div>
           </div>
     
