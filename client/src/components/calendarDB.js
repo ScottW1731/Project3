@@ -10,43 +10,43 @@
 const calendarSeed = [
     {
         "day": "2017-10-17",
-        "value": 18
+        "value": 20
       },
       {
         "day": "2017-08-13",
-        "value": 72
+        "value": 75
       },
       {
         "day": "2017-10-27",
-        "value": 24
+        "value": 25
       },
       {
         "day": "2018-05-06",
-        "value": 73
+        "value": 70
       },
       {
         "day": "2018-03-04",
-        "value": 69
+        "value": 60
       },
       {
         "day": "2018-02-05",
-        "value": 82
+        "value": 80
       },
       {
         "day": "2017-09-10",
-        "value": 38
+        "value": 40
       },
       {
         "day": "2017-12-15",
-        "value": 38
+        "value": 30
       },
       {
         "day": "2017-05-01",
-        "value": 77
+        "value": 75
       },
       {
         "day": "2017-10-22",
-        "value": 47
+        "value": 50
       },
       {
         "day": "2017-04-05",
@@ -62,15 +62,15 @@ const calendarSeed = [
       },
       {
         "day": "2018-01-20",
-        "value": 51
+        "value": 50
       },
       {
         "day": "2017-08-07",
-        "value": 49
+        "value": 50
       },
       {
         "day": "2018-02-14",
-        "value": 58
+        "value": 50
       },
       {
         "day": "2017-04-26",
@@ -82,7 +82,7 @@ const calendarSeed = [
       },
       {
         "day": "2017-10-11",
-        "value": 79
+        "value": 80
       },
       {
         "day": "2017-10-20",
@@ -90,15 +90,15 @@ const calendarSeed = [
       },
       {
         "day": "2018-06-03",
-        "value": 312
+        "value": 40
       },
       {
         "day": "2017-07-04",
-        "value": 82
+        "value": 80
       },
       {
         "day": "2017-04-07",
-        "value": 79
+        "value": 80
       },
       {
         "day": "2018-08-07",
@@ -106,31 +106,31 @@ const calendarSeed = [
       },
       {
         "day": "2017-12-01",
-        "value": 88
+        "value": 90
       },
       {
         "day": "2018-01-08",
-        "value": 79
+        "value": 80
       },
       {
         "day": "2017-08-06",
-        "value": 57
+        "value": 60
       },
       {
         "day": "2018-03-08",
-        "value": 73
+        "value": 75
       },
       {
         "day": "2018-04-07",
-        "value": 58
+        "value": 60
       },
       {
         "day": "2018-02-01",
-        "value": 69
+        "value": 70
       },
       {
         "day": "2017-11-23",
-        "value": 28
+        "value": 30
       },
       {
         "day": "2017-05-16",
@@ -262,7 +262,7 @@ const calendarSeed = [
       },
       {
         "day": "2018-07-29",
-        "value": 271
+        "value": 70
       },
       {
         "day": "2018-07-26",
@@ -1102,7 +1102,7 @@ const calendarSeed = [
       },
       {
         "day": "2017-11-12",
-        "value": 224
+        "value": 25
       },
       {
         "day": "2017-11-21",
