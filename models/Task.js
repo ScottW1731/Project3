@@ -9,7 +9,8 @@ const taskSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        default: "5c83ff18a13f691440c3ca01"
+        // default ID for studentexample user
+        default: "5c8bba4c0a23e2002ac39298"
     },
     taskName: {
         type: String,

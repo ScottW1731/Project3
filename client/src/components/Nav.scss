@@ -1,0 +1,66 @@
+$color-primary-0: #2198F3;  // Main Primary color */
+$color-primary-1: #77BEF5;
+$color-primary-2: #4BAAF4;
+$color-primary-3: #098BEF;
+$color-primary-4: #0367B4;
+
+$color-secondary-1-0: #FFC413;  // Main Secondary color (2) */
+$color-secondary-1-1: #FFDC72;
+$color-secondary-1-2: #FFD041;
+$color-secondary-1-3: #FFBF00;
+$color-secondary-1-4: #FFBF00;
+
+$color-secondary-2-0: #12F4B0;  // Main Secondary color (1) */
+$color-secondary-2-1: #6EF5CC;
+$color-secondary-2-2: #3FF5BE;
+$color-secondary-2-3: #00EFA7;
+$color-secondary-2-4: #00B780;
+
+$color-complement-0: #FF9A13; // Main Complement color */
+$color-complement-1: #FFC372;
+$color-complement-2: #FFAE41;
+$color-complement-3: #FF9200;
+$color-complement-4: #FF9200;
+
+
+
+.color-primary-0 { color: #2198F3 }	/* Main Primary color */
+.color-primary-1 { color: #77BEF5 }
+.color-primary-2 { color: #4BAAF4 }
+.color-primary-3 { color: #098BEF }
+.color-primary-4 { color: #0367B4 }
+
+.color-secon-1-0 { color: #12F4B0 }	/* Main Secondary color (1) */
+.color-secon-1-1 { color: #6EF5CC }
+.color-secon-1-2 { color: #3FF5BE }
+.color-secon-1-3 { color: #00EFA7 }
+.color-secon-1-4 { color: #00B780 }
+
+.color-secon-2-0 { color: #FFC413 }	/* Main Secondary color (2) */
+.color-secon-2-1 { color: #FFDC72 }
+.color-secon-2-2 { color: #FFD041 }
+.color-secon-2-3 { color: #FFBF00 }
+.color-secon-2-4 { color: #FFBF00 }
+
+.color-complem-0 { color: #FF9A13 }	/* Main Complement color */
+.color-complem-1 { color: #FFC372 }
+.color-complem-2 { color: #FFAE41 }
+.color-complem-3 { color: #FF9200 }
+.color-complem-4 { color: #FF9200 }
+
+#navbar {
+    color: #6ef5cc;
+    $secondary-color:#FFC372;
+}
+.nav-link {
+    color: #6ef5cc;
+    $secondary-color:#FFC372;
+}
+#nav-insp {
+    color: #FFC372;
+    $secondary-color:#6ef5cc;
+}
+#nav-about {
+    color: #6ef5cc;
+    $secondary-color:#FFC372;
+}
