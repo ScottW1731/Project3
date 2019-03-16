@@ -21,7 +21,8 @@
 - Clone the [repo](https://github.com/ScottW1731/Project3)
 - Run ``` npm install ``` in the project folder
 - Make sure you have the mongo database running locally with ``` mongod```
-- You will need create log-ins as the sample log-ins are not saved locally
+- Run ```npm start``` to start developmental server
+- You will need create log-ins to test as the sample log-ins are not saved locally
 
 #### Deployed on Heroku using Mongolab for the database
 
