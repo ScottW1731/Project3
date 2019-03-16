@@ -54,7 +54,7 @@ button {
   flex-direction: column;
 }
 
-header {
+.task-head {
   height: 200px;
   display: flex;
   position: relative;
@@ -79,7 +79,7 @@ header {
   padding: 0 0 10px 10px;
   border-bottom: solid 4px $primary;
   p {
-    color: white;
+    color: #4BAAF4;
     height: 100%;
     display: flex;
     font-size: 40px;
@@ -100,7 +100,7 @@ header {
   padding-right: 10px;
   justify-content: flex-end;
   p {
-    color: white;
+    color: #4BAAF4;
     display: flex;
     font-size: 40px;
     align-self: center;
@@ -140,7 +140,7 @@ SEARCH FIELD
 }
 
 ::-webkit-input-placeholder {
-  color: lightgray;
+  color: rgb(78, 28, 28);
   font-style: italic
 }
 

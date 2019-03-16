@@ -1,9 +1,8 @@
 const router = require("express").Router();
 var db = require('../../models');
 
-router.get("/find", function (req, res) {
-    db.Student.find({})
-        .populate("mentor")
+router.get("/findAll", function (req, res) {
+    db.Mentor.find({})
         .populate("user")
         .then(function (dbUser) {
             // console.log(dbUser[0].user.userName);

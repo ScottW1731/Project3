@@ -36,50 +36,50 @@ const toggleClassName = (element, className) => {
 //   (element.className = newClassName);
 // };
 
-const MenuIcon = props => {
-  const toggleStyleAttribute = (
-    element,
-    styleAttribute,
-    attributeOn,
-    attributeOff
-  ) => {
-    element.style[styleAttribute] === attributeOff
-      ? (element.style[styleAttribute] = attributeOn)
-      : (element.style[styleAttribute] = attributeOff);
-  };
-  const handleClick = e => {
-    e.preventDefault();
-    const _this = e._targetInst;
-    const _reactElement = _this._currentElement;
-    const _index = _reactElement.props.index;
+// const MenuIcon = props => {
+//   const toggleStyleAttribute = (
+//     element,
+//     styleAttribute,
+//     attributeOn,
+//     attributeOff
+//   ) => {
+//     element.style[styleAttribute] === attributeOff
+//       ? (element.style[styleAttribute] = attributeOn)
+//       : (element.style[styleAttribute] = attributeOff);
+//   };
+//   const handleClick = e => {
+//     e.preventDefault();
+//     const _this = e._targetInst;
+//     const _reactElement = _this._currentElement;
+//     const _index = _reactElement.props.index;
 
-    let _menuIconLinkNode = _this._hostParent._hostNode;
-    let _projectTitleLinkNode = _menuIconLinkNode.previousSibling;
-    let _projectSummaryDiv =
-      _this._hostParent._hostParent._hostParent._hostNode.nextSibling;
-    let _projectSummaryDividerSpan =
-      _projectSummaryDiv.firstChild.childNodes[1];
-    const _linkNewClassName = _menuIconLinkNode.id + "-current";
-    toggleClassName(_menuIconLinkNode, _linkNewClassName);
-    toggleClassName(_projectTitleLinkNode, _linkNewClassName);
-    const _currentColor = _projectTitleLinkNode.style;
-    // console.log(_currentColor);
-    toggleStyleAttribute(_projectSummaryDiv, "display", "none", "inline-block");
-    toggleClassName(_projectSummaryDividerSpan, "project-divider-" + _index);
-  };
+//     let _menuIconLinkNode = _this._hostParent._hostNode;
+//     let _projectTitleLinkNode = _menuIconLinkNode.previousSibling;
+//     let _projectSummaryDiv =
+//       _this._hostParent._hostParent._hostParent._hostNode.nextSibling;
+//     let _projectSummaryDividerSpan =
+//       _projectSummaryDiv.firstChild.childNodes[1];
+//     const _linkNewClassName = _menuIconLinkNode.id + "-current";
+//     toggleClassName(_menuIconLinkNode, _linkNewClassName);
+//     toggleClassName(_projectTitleLinkNode, _linkNewClassName);
+//     const _currentColor = _projectTitleLinkNode.style;
+//     // console.log(_currentColor);
+//     toggleStyleAttribute(_projectSummaryDiv, "display", "none", "inline-block");
+//     toggleClassName(_projectSummaryDividerSpan, "project-divider-" + _index);
+//   };
 
-  return (
-    <a
-      index={props.index}
-      href={props.href}
-      className="menu-icon"
-      id={props.id}
-      onClick={handleClick}
-    >
-      <i index={props.index} className="fa fa-angle-down" />
-    </a>
-  );
-};
+//   return (
+//     <a
+//       index={props.index}
+//       href={props.href}
+//       className="menu-icon"
+//       id={props.id}
+//       onClick={handleClick}
+//     >
+//       <i index={props.index} className="fa fa-angle-down" />
+//     </a>
+//   );
+// };
 
 const Project = props => {
   const project = props.project;
@@ -92,7 +92,7 @@ const Project = props => {
               {project.title}{" "}
             </a>
           </span>
-          <MenuIcon index={props.index} id={props.menuId} />
+          {/* <MenuIcon index={props.index} id={props.menuId} /> */}
         </h2>
       </div>
       {/* <div className="mask" index={props.index}>
@@ -216,7 +216,7 @@ class LandingPage extends React.Component {
         <div className="page-title" id="pageTitle">
           <h1 className="page-title-h1" id="pageTitleH10">
             <span className="title breakline-listener" id="pageTitle0">
-              KEEP GOING
+              <img className="Keep-Logo" src={require("../assets/img/keep_going_logo_6ef5cc.png")}/>
             </span>
           </h1>
 

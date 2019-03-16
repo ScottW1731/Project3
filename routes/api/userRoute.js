@@ -75,10 +75,10 @@ router.post("/login", function (req, res) { //attempting to login
             })
 });
 
-router.get("/findUsers", function (req, res) {
-    db.User.find({mentorMentee: "mentor"})
+router.get("/findAll", function (req, res) {
+    db.User.find({_id})
         .then(function (dbUser) {
-            // console.log(dbUser);
+            // console.log(dbUser[0]._id);
             res.json(dbUser);
         })
         .catch(function (err) {
@@ -86,5 +86,12 @@ router.get("/findUsers", function (req, res) {
         });
 });
 
+router.get("/findUser/:userName", function (req, res) {
+    db.User.findOne({ userName: req.body.userName })
+        .then(function (dbUser) {
+            console.log(dbUser);
+            res.json(dbUser)
+        })
+})
 
 module.exports = router;

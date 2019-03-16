@@ -2,6 +2,7 @@
 import React, { Component, Fragment } from "react";
 import { random } from "lodash";
 import "../App.css";
+import "./QuoteMachine.scss"
 
 class QuoteMachine extends Component {
   constructor(props) {

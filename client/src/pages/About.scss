@@ -1,0 +1,44 @@
+
+
+.grid-wrapper {
+  width: 1000px;
+  margin: 10px auto;
+  
+  display: grid;
+  grid-template-rows: 70px 200px 400px 100px;
+  grid-template-columns: repeat(3, 1fr) 200px;
+  grid-gap: 10px;
+  
+
+ 
+  grid-template-areas:
+    'head head head head'
+    'pic pic pic sidebar'
+    'main main main sidebar'
+    'foot foot foot foot'
+    ;
+  
+  & > * {
+    background-color: lightseagreen;
+    padding: 20px;
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+  }
+  
+  .header {
+    grid-area: head;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+  }
+  
+  .main-content {
+    grid-area: main;
+  }
+  
+  .footer {
+    grid-area: foot;
+  }
+}

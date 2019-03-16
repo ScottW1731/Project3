@@ -8,12 +8,10 @@ const studentSchema = new Schema({
     },
     mentor: {
         type: Schema.Types.ObjectId,
-        ref: "Mentor"
-    },
-    // tasks: [{
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Task"
-    // }]
+        ref: "Mentor",
+        // default ID for mentorexmaple user
+        default: "5c8bba2f0a23e2002ac39297"
+    }
 });
 
 
